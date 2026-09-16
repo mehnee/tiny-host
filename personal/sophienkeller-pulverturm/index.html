@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Sophienkeller oder Pulverturm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:      #EDEEE9;
+    --surface:     #FFFFFF;
+    --surface-2:   #F5F6F1;
+    --ink:         #1A211E;
+    --ink-soft:    #3C4744;
+    --muted:       #5E6A65;
+    --line:        #D5D9D1;
+    --line-soft:   #E4E7E0;
+
+    --soph:        #8A6524;
+    --soph-soft:   #F2E9D9;
+    --soph-line:   #D9C49A;
+
+    --pulv:        #2C6A5A;
+    --pulv-soft:   #E0EBE6;
+    --pulv-line:   #A6C9BD;
+
+    --same:        #F0F0EA;
+    --same-ink:    #6B7570;
+
+    --f-display: "Newsreader", Georgia, "Times New Roman", serif;
+    --f-body:    "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:    #141817;
+      --surface:   #1C2221;
+      --surface-2: #232A29;
+      --ink:       #E8EBE7;
+      --ink-soft:  #C3CAC6;
+      --muted:     #97A29D;
+      --line:      #333B39;
+      --line-soft: #2A3231;
+
+      --soph:      #D5A458;
+      --soph-soft: #2E2718;
+      --soph-line: #5C4C27;
+
+      --pulv:      #6CB79F;
+      --pulv-soft: #16302A;
+      --pulv-line: #2F5A4E;
+
+      --same:      #242B2A;
+      --same-ink:  #8E9A95;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:    #141817;
+    --surface:   #1C2221;
+    --surface-2: #232A29;
+    --ink:       #E8EBE7;
+    --ink-soft:  #C3CAC6;
+    --muted:     #97A29D;
+    --line:      #333B39;
+    --line-soft: #2A3231;
+
+    --soph:      #D5A458;
+    --soph-soft: #2E2718;
+    --soph-line: #5C4C27;
+
+    --pulv:      #6CB79F;
+    --pulv-soft: #16302A;
+    --pulv-line: #2F5A4E;
+
+    --same:      #242B2A;
+    --same-ink:  #8E9A95;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 0 72px;
+  }
+
+  .prose { max-width: 68ch; }
+
+  /* ---------- Kopf ---------- */
+
+  .masthead {
+    padding-block: 56px 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: clamp(34px, 6.2vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  h1 .vs {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--muted);
+  }
+  .standfirst {
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  /* ---------- Navigation ---------- */
+
+  nav.toc {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: var(--ground);
+    border-bottom: 1px solid var(--line);
+    margin-inline: -20px;
+    padding-inline: 20px;
+  }
+  .toc-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-block: 12px;
+    scrollbar-width: none;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-inner a {
+    flex: 0 0 auto;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+  }
+  .toc-inner a:hover,
+  .toc-inner a:focus-visible { color: var(--ink); border-bottom-color: var(--ink); }
+
+  /* ---------- Abschnitte ---------- */
+
+  section { padding-block: 44px 0; scroll-margin-top: 64px; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: clamp(24px, 3.4vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--f-body);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    margin: 30px 0 10px;
+  }
+  .sect-note {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 22px;
+    max-width: 68ch;
+  }
+  p { margin: 0 0 14px; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* ---------- Steckbriefe ---------- */
+
+  .pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+  }
+  .house {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--house);
+    padding: 22px 22px 24px;
+  }
+  .house.s { --house: var(--soph); }
+  .house.p { --house: var(--pulv); }
+  .house-name {
+    font-family: var(--f-display);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 2px;
+    color: var(--house);
+  }
+  .house-sub {
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+  dl.facts { margin: 0; display: grid; grid-template-columns: 1fr; gap: 12px; }
+  dl.facts > div {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 12px;
+    align-items: baseline;
+  }
+  dl.facts dt {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  dl.facts dd { margin: 0; font-size: 15px; color: var(--ink-soft); }
+  dl.facts dd strong { color: var(--ink); font-weight: 700; }
+  @media (max-width: 420px) {
+    dl.facts > div { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  /* ---------- Fazit ---------- */
+
+  .verdict {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 26px 24px;
+    display: grid;
+    gap: 18px;
+  }
+  .verdict .pick {
+    font-family: var(--f-display);
+    font-size: clamp(21px, 3vw, 26px);
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .verdict .pick b { color: var(--pulv); font-weight: 600; }
+  .verdict .pick i { font-style: italic; color: var(--muted); }
+  .reasons { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .reason { border-top: 1px solid var(--line-soft); padding-top: 12px; }
+  .reason h4 {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 6px;
+    font-weight: 500;
+  }
+  .reason p { margin: 0; font-size: 14.5px; color: var(--ink-soft); }
+
+  /* ---------- Tabellen ---------- */
+
+  .scroller { overflow-x: auto; border: 1px solid var(--line); background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 480px; }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 0 8px;
+  }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+  thead th {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  thead th.col-s { color: var(--soph); }
+  thead th.col-p { color: var(--pulv); }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.num, th.num {
+    font-family: var(--f-mono);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-align: right;
+    width: 1%;
+  }
+  td.dish { font-weight: 500; }
+  td.dish span { display: block; font-weight: 400; color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  tr.group td {
+    background: var(--surface-2);
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-block: 7px;
+  }
+  td.better-s { color: var(--soph); font-weight: 500; }
+  td.better-p { color: var(--pulv); font-weight: 500; }
+  td.absent { color: var(--muted); }
+
+  .chip {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: var(--same);
+    color: var(--same-ink);
+    white-space: nowrap;
+  }
+  .chip.s { background: var(--soph-soft); color: var(--soph); }
+  .chip.p { background: var(--pulv-soft); color: var(--pulv); }
+  .tag-vegan {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pulv);
+    border: 1px solid var(--pulv-line);
+    padding: 0 4px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: 1px;
+  }
+
+  /* ---------- Balken ---------- */
+
+  .range { display: grid; gap: 14px; margin-block: 4px 0; }
+  .range-row { display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: center; }
+  .range-row .label { font-family: var(--f-mono); font-size: 11.5px; color: var(--house); letter-spacing: 0.04em; }
+  .range-row.s { --house: var(--soph); }
+  .range-row.p { --house: var(--pulv); }
+  .track { position: relative; height: 26px; background: var(--surface-2); border: 1px solid var(--line-soft); }
+  .bar {
+    position: absolute; top: 0; bottom: 0;
+    background: var(--house);
+    opacity: 0.22;
+    border-left: 2px solid var(--house);
+    border-right: 2px solid var(--house);
+  }
+  .bar-lo, .bar-hi {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-family: var(--f-mono); font-size: 11px; font-variant-numeric: tabular-nums;
+    color: var(--ink); padding-inline: 6px;
+  }
+  .axis { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10.5px; color: var(--muted); margin-top: 2px; }
+  @media (max-width: 520px) {
+    .range-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* ---------- Bewertungen ---------- */
+
+  .scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .score { background: var(--surface); padding: 16px 16px 14px; }
+  .score .src { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  .score .val { font-family: var(--f-display); font-size: 27px; font-weight: 600; line-height: 1; margin: 0; color: var(--house); }
+  .score .cnt { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin: 6px 0 0; }
+  .score.s { --house: var(--soph); }
+  .score.p { --house: var(--pulv); }
+
+  /* ---------- Zitate & Hinweise ---------- */
+
+  blockquote {
+    margin: 0 0 16px;
+    padding: 2px 0 2px 18px;
+    border-left: 2px solid var(--line);
+    font-family: var(--f-display);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+  blockquote cite { display: block; font-family: var(--f-mono); font-size: 11px; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+
+  .callout {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--ink-soft);
+    padding: 18px 20px;
+  }
+  .callout h3 { margin-top: 0; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  ul.plain { margin: 0 0 14px; padding-left: 18px; }
+  ul.plain li { margin-bottom: 6px; color: var(--ink-soft); }
+
+  a { color: inherit; text-decoration-color: var(--line); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: currentColor; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  footer ul { padding-left: 18px; margin: 10px 0 0; }
+  footer li { margin-bottom: 4px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Gewölberestaurants Dresden · Stand 16. September 2026</p>
+    <h1>Sophienkeller <span class="vs">oder</span> Pulverturm</h1>
+    <p class="standfirst">Zwei Häuser, ein Betreiber, fast dieselbe Karte — und trotzdem eine Entscheidung. Alle Preise aus den aktuellen Speisekarten 2026, dazu Gruppenangebote, Bewertungen und das Kleingedruckte zum Gutschein.</p>
+  </header>
+
+  <nav class="toc" aria-label="Abschnitte">
+    <div class="toc-inner">
+      <a href="#blick">Auf einen Blick</a>
+      <a href="#fazit">Fazit</a>
+      <a href="#identisch">Gleiche Preise</a>
+      <a href="#unterschiede">Unterschiede</a>
+      <a href="#karte-s">Karte Sophienkeller</a>
+      <a href="#karte-p">Karte Pulverturm</a>
+      <a href="#gruppen">Gruppen</a>
+      <a href="#getraenke">Getränke</a>
+      <a href="#bewertungen">Bewertungen</a>
+      <a href="#praktisch">Praktisches</a>
+      <a href="#gutschein">Gutschein</a>
+    </div>
+  </nav>
+
+  <section id="blick">
+    <h2>Auf einen Blick</h2>
+    <p class="sect-note">Beide Häuser gehören zusammen: Katrin Sander und Steffi Kalz-Giese führen die Geschäfte sowohl der Sophienkeller GmbH &amp; Co. KG als auch der Pulverturm GmbH &amp; Co. KG. Gleiches Konzept, gleiche Küche, gleiche Abendunterhaltung — unterschiedliches Gebäude.</p>
+
+    <div class="pair">
+      <article class="house s">
+        <p class="house-name">Sophienkeller</p>
+        <p class="house-sub">im Taschenbergpalais</p>
+        <dl class="facts">
+          <div><dt>Adresse</dt><dd>Taschenberg 3, 01067 Dresden<br>Tel. <strong>+49 351 49 72 60</strong></dd></div>
+          <div><dt>Lage</dt><dd>Gewölbe des Taschenbergpalais (1706), gegenüber Zwinger und Semperoper</dd></div>
+          <div><dt>Thema</dt><dd>August der Starke und Gräfin Cosel, sächsischer Königshof des 18. Jahrhunderts</dd></div>
+          <div><dt>Räume</dt><dd><strong>Zeithainer Lustlager</strong> (größter Raum, ca. 130 Personen), Großes und Kleines Zunftgewölbe, Einsiedelsches Haus mit original erhaltenen Mauerresten aus dem 12. Jahrhundert, Freiherrentafel, Klosterbäckerei, <strong>Alchimistenkeller</strong> (bis 13 Personen)</dd></div>
+          <div><dt>Eigenart</dt><dd>Das <strong>sich drehende Karussell</strong>, dazu Zelte und Pavillons. Im Alchimistenkeller zapft man beim „Alchimistenschmaus“ sein Bier selbst (ab 10 Personen)</dd></div>
+          <div><dt>Offen</dt><dd>Mo <strong>Ruhetag</strong> (außer feiertags)<br>Di–Sa 11–23 Uhr · So 11–22 Uhr</dd></div>
+        </dl>
+      </article>
+
+      <article class="house p">
+        <p class="house-name">Pulverturm</p>
+        <p class="house-sub">an der Frauenkirche</p>
+        <dl class="facts">
+          <div><dt>Adresse</dt><dd>An der Frauenkirche 12, 01067 Dresden<br>Tel. <strong>+49 351 26 26 00</strong></dd></div>
+          <div><dt>Lage</dt><dd>Kellergewölbe des Coselpalais, direkt neben der Frauenkirche am Neumarkt</dd></div>
+          <div><dt>Thema</dt><dd>Militärisches Sachsen — Festung, Grenadiere, Marschall de Sachse</dd></div>
+          <div><dt>Räume</dt><dd>Wächtergang, Schwedengemächer, Marschall-de-Sachse-Zimmer, Russisches und Türkisches Gewölbe, Weindepot und ein <strong>Verlies</strong> — zusammen rund <strong>400 Plätze</strong></dd></div>
+          <div><dt>Eigenart</dt><dd>Die <strong>Henkersmahlzeit</strong> im Verlies. Der Turm von 1565 war 23 m hoch, 18 m im Durchmesser, bis 2 m Mauerdicke; sichtbare Fragmente stehen bis heute im Untergeschoss</dd></div>
+          <div><dt>Offen</dt><dd>Mi <strong>Ruhetag</strong><br>Mo, Di, Do 12–23 Uhr · Fr, Sa 11–0 Uhr · So 11–23 Uhr</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section id="fazit">
+    <h2>Das Fazit</h2>
+    <p class="sect-note">Die Entscheidung fällt nicht über den Preis der Hauptgerichte — der ist bei den Aushängeschildern auf den Cent gleich.</p>
+
+    <div class="verdict">
+      <p class="pick">Für zwei Personen am Abend: <b>Pulverturm</b>. <i>Es sei denn,</i> es soll Steak, Ente oder Lachs sein — oder Kinder sollen im Karussell sitzen. Dann Sophienkeller.</p>
+      <div class="reasons">
+        <div class="reason">
+          <h4>Preis</h4>
+          <p>Sauerbraten 26,90 € und Spanferkel 29,90 € kosten in beiden Häusern dasselbe. Auch Suppen, Brotkorb, Desserts und das Bier sind identisch bepreist.</p>
+        </div>
+        <div class="reason">
+          <h4>Tisch</h4>
+          <p>Der Sophienkeller will lange im Voraus reserviert sein; im Pulverturm reicht Gästeberichten zufolge oft ein Anruf am selben Morgen. 400 Plätze auf sieben Gewölbe verteilt.</p>
+        </div>
+        <div class="reason">
+          <h4>Service</h4>
+          <p>Die wiederkehrende Kritik am Sophienkeller ist überfordertes Personal zu Stoßzeiten. Beim Pulverturm taucht dieser Punkt deutlich seltener auf.</p>
+        </div>
+        <div class="reason">
+          <h4>Für Gruppen</h4>
+          <p>Hier ist der Unterschied groß: Die Gruppenmenüs im Pulverturm beginnen bei <strong>29,90 €</strong>, im Sophienkeller erst bei <strong>42,90 €</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="identisch">
+    <h2>Wo die Preise identisch sind</h2>
+    <p class="sect-note">Das ist der zentrale Befund: Alles, was beide Häuser führen, kostet in beiden Häusern gleich viel. Ein Wertgutschein reicht hier wie dort exakt gleich weit.</p>
+
+    <div class="scroller">
+      <table>
+        <caption>Gerichte und Getränke, die es in beiden Häusern gibt</caption>
+        <thead>
+          <tr>
+            <th scope="col">Position</th>
+            <th scope="col" class="col-s num">Sophienkeller</th>
+            <th scope="col" class="col-p num">Pulverturm</th>
+            <th scope="col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group"><td colspan="4">Suppen &amp; Brot</td></tr>
+          <tr><td class="dish">Sächsische Kartoffelsuppe<span>kleine / große Kelle</span></td><td class="num">7,90 / 13,50</td><td class="num">7,90 / 13,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Soljanka<span>kleine / große Kelle</span></td><td class="num">7,90 / 13,50</td><td class="num">7,90 / 13,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Brotkorb, hausgebacken</td><td class="num">6,20</td><td class="num">6,20</td><td><span class="chip">gleich</span></td></tr>
+          <tr class="group"><td colspan="4">Vorspeise</td></tr>
+          <tr><td class="dish">Feines Würzfleisch vom Schwein<span>Blätterteigpastete, mit Käse überbacken</span></td><td class="num">10,90</td><td class="num">10,90</td><td><span class="chip">gleich</span></td></tr>
+          <tr class="group"><td colspan="4">Die beiden Aushängeschilder</td></tr>
+          <tr><td class="dish">Sächsischer Sauerbraten<span>„Lieblingsgericht unserer Gäste“ — in beiden Karten so ausgezeichnet</span></td><td class="num">26,90</td><td class="num">26,90</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Spanferkel<span>Majoransoße, Sauerkraut, Königskloß</span></td><td class="num">29,90</td><td class="num">29,90</td><td><span class="chip">gleich</span></td></tr>
+          <tr class="group"><td colspan="4">Süßes</td></tr>
+          <tr><td class="dish">Hausgebackene Eierschecke</td><td class="num">4,90</td><td class="num">4,90</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Sächsische Quarkkäulchen</td><td class="num">8,90</td><td class="num">8,90</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Ofenfrischer Strudel</td><td class="num">9,50</td><td class="num">9,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Gemischtes Eis</td><td class="num">7,50</td><td class="num">7,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Schokoladenbecher</td><td class="num">8,50</td><td class="num">8,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Schwedeneisbecher</td><td class="num">8,90</td><td class="num">8,90</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Eiskaffee / Eisschokolade</td><td class="num">5,90</td><td class="num">5,90</td><td><span class="chip">gleich</span></td></tr>
+          <tr class="group"><td colspan="4">Getränke</td></tr>
+          <tr><td class="dish">Bier vom Fass 0,25 / 0,5 / 1,0 l<span>unterschiedliche Namen, gleicher Preis</span></td><td class="num">3,90 / 6,20 / 11,20</td><td class="num">3,90 / 6,20 / 11,20</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Trichtertrinken „Coselträne“, 2 cl</td><td class="num">4,50</td><td class="num">4,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Tafelwasser 0,2 / 0,5 l</td><td class="num">3,20 / 5,50</td><td class="num">3,20 / 5,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Selters 0,25 / 0,75 l</td><td class="num">3,50 / 7,50</td><td class="num">3,50 / 7,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Sekt Graf von Wackerbarth, 0,75 l</td><td class="num">30,50</td><td class="num">30,50</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Tasse Kaffee / Kännchen</td><td class="num">3,50 / 5,70</td><td class="num">3,50 / 5,70</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Trinkschokolade mit Espresso<span>„Augusts Starker Kaffee“ bzw. „Starker Marschall“</span></td><td class="num">4,90</td><td class="num">4,90</td><td><span class="chip">gleich</span></td></tr>
+          <tr><td class="dish">Getränkepauschale für Gruppen<span>max. 4 Stunden, jede weitere Stunde 9,20</span></td><td class="num">32,90</td><td class="num">32,90</td><td><span class="chip">gleich</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="unterschiede">
+    <h2>Wo die Häuser auseinandergehen</h2>
+    <p class="sect-note">Nicht im Preis pro Teller, sondern in der Spannweite der Karte und in zwei Zeilen Kleingedrucktem.</p>
+
+    <h3>Preisspanne der Hauptgerichte</h3>
+    <div class="range" role="img" aria-label="Sophienkeller: Hauptgerichte von 17,90 bis 34,90 Euro. Pulverturm: Hauptgerichte von 18,90 bis 29,90 Euro.">
+      <div class="range-row s">
+        <span class="label">Sophienkeller</span>
+        <div>
+          <div class="track">
+            <div class="bar" style="left:0%; right:0%;"></div>
+            <span class="bar-lo" style="left:0;">17,90 €</span>
+            <span class="bar-hi" style="right:0;">34,90 €</span>
+          </div>
+        </div>
+      </div>
+      <div class="range-row p">
+        <span class="label">Pulverturm</span>
+        <div>
+          <div class="track">
+            <div class="bar" style="left:5.9%; right:29.4%;"></div>
+            <span class="bar-lo" style="left:5.9%;">18,90 €</span>
+            <span class="bar-hi" style="right:29.4%;">29,90 €</span>
+          </div>
+          <div class="axis"><span>15 €</span><span>25 €</span><span>35 €</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="sect-note" style="margin-top:16px;">Der Sophienkeller reicht oben weiter (Rumpsteak 34,90 €, Lachsfilet 32,90 €) und unten tiefer (vegane Ofenpaprika 17,90 €). Der Pulverturm liegt enger beieinander — teurer als das Spanferkel wird es dort nicht.</p>
+
+    <div class="scroller" style="margin-top:22px;">
+      <table>
+        <caption>Direkte Gegenüberstellung</caption>
+        <thead>
+          <tr>
+            <th scope="col">Punkt</th>
+            <th scope="col" class="col-s">Sophienkeller</th>
+            <th scope="col" class="col-p">Pulverturm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="dish">Hausgemachte Sülze vom Spanferkel</td><td class="better-s">19,90 €</td><td>20,90 €</td></tr>
+          <tr><td class="dish">Beilagenänderung</td><td class="better-s">kein Aufpreis in der Karte vermerkt</td><td><strong>+ 1,50 € pro Gericht</strong></td></tr>
+          <tr><td class="dish">Oberes Ende der Karte</td><td class="better-s">Argentinisches Rumpsteak 34,90 €, Lachsfilet 32,90 €, halbe Ente 27,50 €</td><td class="absent">kein Steak, keine Ente — Spanferkel 29,90 € ist die Obergrenze</td></tr>
+          <tr><td class="dish">Fisch</td><td class="better-s">3 Gerichte, Forelle fangfrisch aus der Fischaufzucht Kotte in Stürza</td><td>2 Gerichte (Matjes, Zander)</td></tr>
+          <tr><td class="dish">Vegan</td><td>1 veganes Hauptgericht (Ofenpaprika), veganer Avocadodip</td><td class="better-p"><strong>3 vegane Hauptgerichte</strong> plus vegane Suppe, vegane Quinoa Bowl und veganes Mangosorbet</td></tr>
+          <tr><td class="dish">Suppenauswahl</td><td>2 Suppen</td><td class="better-p">4 Suppen, darunter eine Tagessuppe für 7,70 €</td></tr>
+          <tr><td class="dish">Schweinshaxe</td><td class="absent">nicht auf der Karte</td><td class="better-p">Knusprige Schweinshaxe 26,90 €</td></tr>
+          <tr><td class="dish">Kalte Platten / Vesper</td><td>Hackepeter 15,90 €, Sächsische Hofkäserei 20,90 €</td><td class="better-p">„Marschration“ 23,90 €, Rindertatar 200 g 21,90 €, Brotkorb „Von allem ein bisschen“ 15,90 €</td></tr>
+          <tr><td class="dish">Biere vom Fass</td><td>4 Sorten</td><td class="better-p">5 Sorten (zusätzlich Freiberger Kellerbier)</td></tr>
+          <tr><td class="dish">Kleine Eisportion</td><td class="absent">nicht ausgewiesen</td><td class="better-p">alle Eisbecher mit 2 Kugeln — 2,00 €</td></tr>
+          <tr><td class="dish">Gruppenmenüs ab</td><td>42,90 € p. P. (vegetarisch 35,90 €)</td><td class="better-p"><strong>29,90 € p. P.</strong></td></tr>
+          <tr><td class="dish">Mindestgröße Buffet</td><td>25 Personen</td><td class="better-p">20 Personen</td></tr>
+          <tr><td class="dish">Ruhetag</td><td>Montag (außer feiertags)</td><td>Mittwoch</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="karte-s">
+    <h2>Speisekarte Sophienkeller</h2>
+    <p class="sect-note">Vollständig, gültig ab 5. Januar 2026. Preise in Euro.</p>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">Gericht</th><th scope="col" class="num">Preis</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="2">Suppen</td></tr>
+          <tr><td class="dish">Sächsische Kartoffelsuppe<span>mit gebratenen Bockwurstscheiben · kleine / große Kelle</span></td><td class="num">7,90 / 13,50</td></tr>
+          <tr><td class="dish">Soljanka<span>mit Paprika, Wurst, Salami, Gewürzgurke, Schmand und Zitronenscheibe · kleine / große Kelle</span></td><td class="num">7,90 / 13,50</td></tr>
+
+          <tr class="group"><td colspan="2">Brot und Salat</td></tr>
+          <tr><td class="dish">Brotkorb, hausgebacken<span>dazu Butter + 1,40 · Schmalz + 2,50 · Avocadodip (vegan) + 2,80</span></td><td class="num">6,20</td></tr>
+          <tr><td class="dish">Rucolasalat<span>Strauchtomaten, Oliven, Peperoni, rote Zwiebeln, Schafskäse, Kräutervinaigrette · kleiner / großer Teller</span></td><td class="num">9,90 / 16,90</td></tr>
+
+          <tr class="group"><td colspan="2">Kleiner Appetit</td></tr>
+          <tr><td class="dish">Feines Würzfleisch vom Schwein<span>mit Champignons in der Blätterteigpastete, mit Käse überbacken</span></td><td class="num">10,90</td></tr>
+
+          <tr class="group"><td colspan="2">Kalte Küche</td></tr>
+          <tr><td class="dish">Hackepeter<span>mit Eigelb, gehackten Zwiebeln, Gewürzgurke, hausgebackenem Brot und Butter</span></td><td class="num">15,90</td></tr>
+          <tr><td class="dish">Sächsische Hofkäserei<span>Käsespezialitäten aus Sachsen mit Feigensenf, Trauben, Brot und Butter</span></td><td class="num">20,90</td></tr>
+          <tr><td class="dish">Hausgemachte Sülze vom Spanferkel<span>mit Remouladensoße, Bratkartoffeln und Salatbukett</span></td><td class="num">19,90</td></tr>
+
+          <tr class="group"><td colspan="2">Aus Topf und Pfanne</td></tr>
+          <tr><td class="dish">Sächsischer Sauerbraten <span class="chip s">Lieblingsgericht</span><span>Rosinensoße, Apfelrotkraut, Königskloß mit Semmelbutter überzogen</span></td><td class="num">26,90</td></tr>
+          <tr><td class="dish">Spanferkel<span>Majoransoße, Sauerkraut, Königskloß mit Semmelbutter, dazu Senf</span></td><td class="num">29,90</td></tr>
+          <tr><td class="dish">Rinderroulade nach Hausfrauenart<span>gefüllt mit Zwiebeln, Speck, Senf und Gewürzgurke, Apfelrotkraut und Kartoffeln</span></td><td class="num">26,90</td></tr>
+          <tr><td class="dish">Schweineschnitzel<span>mit Würzfleisch, Champignons und Käse überbacken, Buttererbsen, Kartoffelgratin</span></td><td class="num">25,90</td></tr>
+          <tr><td class="dish">Argentinisches Rumpsteak<span>Kräuterbutter, Ofenkartoffel, Kräuterquark, Salatbukett</span></td><td class="num">34,90</td></tr>
+
+          <tr class="group"><td colspan="2">Geflügel</td></tr>
+          <tr><td class="dish">Halbe ausgelöste Ente<span>Beifußsoße, Apfelrotkraut, Königskloß</span></td><td class="num">27,50</td></tr>
+          <tr><td class="dish">Hähnchenfilet im Blätterteig<span>mit Spinat, Frisch- und Schafskäse eingebacken, Blattsalate, Käsesoße</span></td><td class="num">23,90</td></tr>
+
+          <tr class="group"><td colspan="2">Fisch — fangfrisch aus der Fischaufzucht Kotte, Stürza</td></tr>
+          <tr><td class="dish">Ofenwarme geräucherte Forelle<span>Blattsalat, Apfel-Meerrettich, hausgebackenes Brot</span></td><td class="num">19,90</td></tr>
+          <tr><td class="dish">Ofenkartoffel mit Räucherlachsstreifen<span>auf mariniertem Rucola, hausgemachter Kräuterquark</span></td><td class="num">18,50</td></tr>
+          <tr><td class="dish">Lachsfilet<span>mit Ofenkartoffel, Kräuterquark und Salatbukett</span></td><td class="num">32,90</td></tr>
+
+          <tr class="group"><td colspan="2">Ohne Fleisch</td></tr>
+          <tr><td class="dish">Kartoffelroulade<span>gefüllt mit Spinat, Frisch- und Schafskäse, Salatbukett, Käsesoße</span></td><td class="num">19,90</td></tr>
+          <tr><td class="dish">Im Ofen geschmorte Paprika<span class="tag-vegan">vegan</span><span>gefüllt mit Kürbis, Quinoa und roten Linsen, auf mariniertem Rucola mit Avocadodip</span></td><td class="num">17,90</td></tr>
+          <tr><td class="dish">„Halb und Halb“<span>halbe Kartoffelroulade und halbe geschmorte Paprika</span></td><td class="num">18,90</td></tr>
+          <tr><td class="dish">Gnocchipfanne<span>in Tomaten-Sahne-Soße mit Rucola, Burrata und Pesto</span></td><td class="num">20,90</td></tr>
+
+          <tr class="group"><td colspan="2">Desserts und Eis</td></tr>
+          <tr><td class="dish">Hausgebackene Eierschecke</td><td class="num">4,90</td></tr>
+          <tr><td class="dish">Gemischtes Eis</td><td class="num">7,50</td></tr>
+          <tr><td class="dish">Schokoladenbecher</td><td class="num">8,50</td></tr>
+          <tr><td class="dish">Sächsische Quarkkäulchen<span>in Zucker gewälzt, mit Apfelmus und Sahne</span></td><td class="num">8,90</td></tr>
+          <tr><td class="dish">Nussbecher</td><td class="num">8,90</td></tr>
+          <tr><td class="dish">Schwedeneisbecher<span>Vanilleeis mit Apfelmus, Eierlikör und Sahne</span></td><td class="num">8,90</td></tr>
+          <tr><td class="dish">Windbeutel</td><td class="num">9,50</td></tr>
+          <tr><td class="dish">Hausgebackener Apfelstrudel</td><td class="num">9,50</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="karte-p">
+    <h2>Speisekarte Pulverturm</h2>
+    <p class="sect-note">Vollständig, gültig bis 15. November 2026. Preise in Euro. Für jede Beilagenänderung berechnet das Haus 1,50 € pro Gericht.</p>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">Gericht</th><th scope="col" class="num">Preis</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="2">Suppen</td></tr>
+          <tr><td class="dish">Tagessuppe nach Laune der Magd</td><td class="num">7,70</td></tr>
+          <tr><td class="dish">Sächsische Kartoffelsuppe<span>mit gebratenen Bockwurstscheiben · kleine / große Kelle</span></td><td class="num">7,90 / 13,50</td></tr>
+          <tr><td class="dish">Zucchini-Erbsensuppe<span class="tag-vegan">vegan</span><span>mit Kokosmilch und gebackenen Kichererbsen</span></td><td class="num">7,90</td></tr>
+          <tr><td class="dish">Soljanka<span>nach Rezeptur eines russischen Wanderers, mit Zitrone und Schmand · kleine / große Kelle</span></td><td class="num">7,90 / 13,50</td></tr>
+
+          <tr class="group"><td colspan="2">Warme Vorspeise</td></tr>
+          <tr><td class="dish">Feines Würzfleisch vom Schwein<span>mit Champignons in der Blätterteigpastete, mit Käse gratiniert</span></td><td class="num">10,90</td></tr>
+
+          <tr class="group"><td colspan="2">Vorspeisen, Salate und kalte Gerichte</td></tr>
+          <tr><td class="dish">Brotkorb<span>mit Butter 7,60 · mit Schmalz 8,70</span></td><td class="num">6,20</td></tr>
+          <tr><td class="dish">„Von allem ein bisschen“<span>Butter, Leberwurst, Schmalz und Spreewälder Gurken</span></td><td class="num">15,90</td></tr>
+          <tr><td class="dish">Großer gemischter Salat<span>mit Edamame-Falafelbällchen 20,90 · mit gebratenem Zanderfilet 22,90</span></td><td class="num">17,90</td></tr>
+          <tr><td class="dish">Vegane Quinoa Bowl<span class="tag-vegan">vegan</span><span>Paprika, Gurke, Kirschtomaten, Avocado, geröstete Walnüsse, Sesam-Kokosdressing · mit Falafel 21,90</span></td><td class="num">18,90</td></tr>
+          <tr><td class="dish">Tatar (roh) vom Rind, 200 g<span>mit Eigelb, Sardellen, Kapern, gehackten Zwiebeln und hausgebackenem Brot</span></td><td class="num">21,90</td></tr>
+          <tr><td class="dish">„Marschration“<span>Brot mit Käse-Biercreme, Husarensalami, Stolpener Landschinken, Hackepeter, Butter, Röstzwiebelschmalz, Gewürzgurke und ein „Feldwässerchen“</span></td><td class="num">23,90</td></tr>
+
+          <tr class="group"><td colspan="2">Aus Topf und Pfanne</td></tr>
+          <tr><td class="dish">Hausgemachte Sülze vom Spanferkel (kalt)<span>mit Remouladensoße und Bratkartoffeln</span></td><td class="num">20,90</td></tr>
+          <tr><td class="dish">Omas Paprikagulasch<span>Gulasch vom Schwein mit Petersilienkartoffeln und Weißkrautsalat</span></td><td class="num">21,90</td></tr>
+          <tr><td class="dish">Schweinenackensteak<span>mariniert in Radeberger Pilsner und Bautzner Senf, glacierte Rotweinzwiebeln, Rosmarinkartoffeln</span></td><td class="num">22,90</td></tr>
+          <tr><td class="dish">Kanonenkugeln im Blätterteig<span>drei Füllungen: Pute · Äpfel und Zwiebeln · Tomate-Mozzarella · Spanferkel mit Sauerkraut</span></td><td class="num">23,90</td></tr>
+          <tr><td class="dish">Schweinesteak au four<span>mit Würzfleisch und Käse überbacken, Erbsen und Kartoffelkroketten</span></td><td class="num">24,90</td></tr>
+          <tr><td class="dish">Marinierte Rippchen vom Schwein<span>aus dem Ofenrohr, cremiger Krautsalat, gebackene Kartoffelstäbchen</span></td><td class="num">24,90</td></tr>
+          <tr><td class="dish">Zwei kleine Hähnchenschnitzel<span>gebratene Champignons, geschmolzener Käse, Kartoffelstäbchen, Chili-Limetten-Mayonnaise</span></td><td class="num">24,90</td></tr>
+          <tr><td class="dish">Ferkel im Brotlaib<span>eingebacken mit Sauerkraut und gerösteten Zwiebeln, Majoransoße, Salatbukett</span></td><td class="num">25,90</td></tr>
+          <tr><td class="dish">Sächsischer Sauerbraten <span class="chip p">Lieblingsgericht</span><span>Apfelrotkraut, Rosinensoße, Königskloß mit Semmelbutter</span></td><td class="num">26,90</td></tr>
+          <tr><td class="dish">Knusprige Schweinshaxe<span>Majoransoße, Sauerkraut, Königskloß mit Semmelbutter</span></td><td class="num">26,90</td></tr>
+          <tr><td class="dish">Saftig gegrilltes Spanferkel<span>Majoransoße, Sauerkraut, Königskloß mit Semmelbutter</span></td><td class="num">29,90</td></tr>
+
+          <tr class="group"><td colspan="2">Fisch</td></tr>
+          <tr><td class="dish">Matjesfilets „Hausfrauen Art“<span>mit gebackenen Risoleekartoffeln</span></td><td class="num">24,90</td></tr>
+          <tr><td class="dish">Zanderfilet<span>auf der Haut gebraten, Süßkartoffel mit Champignons, Blattspinat, Kirschtomaten und Frühlingslauch, Avocadocreme, Salat</span></td><td class="num">26,90</td></tr>
+
+          <tr class="group"><td colspan="2">Vegetarisch und vegan</td></tr>
+          <tr><td class="dish">Ricotta-Spinat-Tortellini-Pfanne<span>Brokkoli, Kirschtomaten, Parmigiano Reggiano, geröstete Pinienkerne</span></td><td class="num">20,90</td></tr>
+          <tr><td class="dish">Gebackene Süßkartoffel<span class="tag-vegan">vegan</span><span>gefüllt mit Champignons, Blattspinat, Kirschtomaten, Frühlingslauch, Avocadocreme, Salat</span></td><td class="num">21,90</td></tr>
+          <tr><td class="dish">Kokos-Curry<span class="tag-vegan">vegan</span><span>mariniertem Tofu, Süßkartoffel, geröstete Erdnüsse auf Quinoa-Gemüsepfanne · mit gebratenen Garnelen 25,90</span></td><td class="num">21,90</td></tr>
+
+          <tr class="group"><td colspan="2">Desserts und Eis — alle Eisbecher auch als kleine Portion mit 2 Kugeln, − 2,00</td></tr>
+          <tr><td class="dish">Hausgebackene Eierschecke</td><td class="num">4,90</td></tr>
+          <tr><td class="dish">Gemischtes Eis</td><td class="num">7,50</td></tr>
+          <tr><td class="dish">Schokoladenbecher</td><td class="num">8,50</td></tr>
+          <tr><td class="dish">Mangobecher<span class="tag-vegan">vegan</span><span>drei Kugeln Mangosorbet mit Mangokompott</span></td><td class="num">8,50</td></tr>
+          <tr><td class="dish">Sächsische Quarkkäulchen</td><td class="num">8,90</td></tr>
+          <tr><td class="dish">Schwedeneisbecher</td><td class="num">8,90</td></tr>
+          <tr><td class="dish">Ofenfrischer Strudel<span>nach Bäckerlaune, mit Vanillesoße und einer Kugel Eis</span></td><td class="num">9,50</td></tr>
+          <tr><td class="dish">Schwarzwaldbecher<span>Schokoladen- und Vanilleeis mit beschwipsten Kirschen</span></td><td class="num">9,50</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="gruppen">
+    <h2>Für Gruppen: Menüs und Buffets</h2>
+    <p class="sect-note">Der größte Preisunterschied zwischen den Häusern steckt hier — nicht in der Tageskarte. Alle Preise pro Person.</p>
+
+    <div class="scroller">
+      <table>
+        <caption>Menüs</caption>
+        <thead><tr><th scope="col">Angebot</th><th scope="col">Haus</th><th scope="col" class="num">ab Pers.</th><th scope="col" class="num">p. P.</th></tr></thead>
+        <tbody>
+          <tr><td class="dish">„Hausfrauenmenü“<span>Tagessuppe · Schweinebraten in Senfkruste mit Marktgemüse und Kräuterkartoffeln · hausgemachter Strudel mit Vanillesoße</span></td><td><span class="chip p">Pulverturm</span></td><td class="num">—</td><td class="num">29,90</td></tr>
+          <tr><td class="dish">„Sächsisches Menü“<span>Kartoffelsuppe mit Wurst · Sauerbraten mit Rotkraut und Königskloß · Quarkkäulchen mit Apfelmus und Sahne</span></td><td><span class="chip p">Pulverturm</span></td><td class="num">—</td><td class="num">32,90</td></tr>
+          <tr><td class="dish">Menü D, vegetarisch / vegan<span>Gemüseconsommé · Tomate-Mozzarella · Ofenpaprika mit Kürbis, Quinoa, roten Linsen · Vanilleeis</span></td><td><span class="chip s">Sophienkeller</span></td><td class="num">10</td><td class="num">35,90</td></tr>
+          <tr><td class="dish">„Pulverturmschmaus“<span>Tagessuppe · gegrilltes Spanferkel mit Majoransoße, Sauerkraut und Königskloß · Eierschecke</span></td><td><span class="chip p">Pulverturm</span></td><td class="num">—</td><td class="num">37,90</td></tr>
+          <tr><td class="dish">Menü A<span>Steinpilzsüppchen mit Schinkenstreifen · Tomatensalat · Hähnchenbrust in Käse-Pumpernickel-Kruste · Apfelstrudel mit Eis</span></td><td><span class="chip s">Sophienkeller</span></td><td class="num">10</td><td class="num">42,90</td></tr>
+          <tr><td class="dish">Menü B<span>Süßkartoffel-Ingwer-Suppe · Lachstatar · Schweinefilet im Parmaschinken · Eierlikör-Panna-Cotta</span></td><td><span class="chip s">Sophienkeller</span></td><td class="num">10</td><td class="num">46,90</td></tr>
+          <tr><td class="dish">Menü C<span>Gemüseconsommé · Kräuterpfannkuchen mit Räucherlachs · Rumpsteak mit grünen Bohnen · Mascarpone-Baumkuchen-Lasagne</span></td><td><span class="chip s">Sophienkeller</span></td><td class="num">10</td><td class="num">49,90</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="scroller" style="margin-top:22px;">
+      <table>
+        <caption>Buffets</caption>
+        <thead><tr><th scope="col">Angebot</th><th scope="col">Haus</th><th scope="col" class="num">ab Pers.</th><th scope="col" class="num">p. P.</th></tr></thead>
+        <tbody>
+          <tr><td class="dish">„Sächsisches Gelage“<span>Landbrot mit Leberwurst, Kartoffelsuppe, Sauerbraten, Schweinebraten, Fisch, gebackene Klöße, Quarkkäulchen</span></td><td><span class="chip p">Pulverturm</span></td><td class="num">20</td><td class="num">39,90</td></tr>
+          <tr><td class="dish">Sächsisches Buffet<span>regionale Spezialitäten</span></td><td><span class="chip s">Sophienkeller</span></td><td class="num">25</td><td class="num">43,00</td></tr>
+          <tr><td class="dish">„Königliches Jagdgelage“</td><td><span class="chip s">Sophienkeller</span></td><td class="num">25</td><td class="num">44,50</td></tr>
+          <tr><td class="dish">Mediterranes Buffet</td><td><span class="chip s">Sophienkeller</span></td><td class="num">25</td><td class="num">45,50</td></tr>
+          <tr><td class="dish">„Kurfürstlicher Schmaus“<span>Vorspeisen, Suppe, Sauerbraten, Schwein, Fisch, Pasta, Eispyramide mit Pyrotechnik, Panna Cotta, Rote Grütze</span></td><td><span class="chip p">Pulverturm</span></td><td class="num">20</td><td class="num">45,90</td></tr>
+          <tr><td class="dish">„Kadettenschmaus“<span>kalte Platten, Salate, hausgebackenes Brot, Pute, Fisch, Schwein, Pasta, Panna Cotta, Rote Grütze</span></td><td><span class="chip p">Pulverturm</span></td><td class="num">30</td><td class="num">54,00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="sect-note" style="margin-top:18px;">Getränkepauschale in beiden Häusern 32,90 € pro Person für maximal vier Stunden, jede weitere Stunde 9,20 €.</p>
+  </section>
+
+  <section id="getraenke">
+    <h2>Getränke und das Trichtertrinken</h2>
+    <p class="sect-note">Gleiche Preise, andere Namen — die Bier-Maße heißen im Sophienkeller nach dem Hof, im Pulverturm nach der Artillerie.</p>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">Menge</th><th scope="col" class="col-s">Sophienkeller</th><th scope="col" class="col-p">Pulverturm</th><th scope="col" class="num">Preis</th></tr></thead>
+        <tbody>
+          <tr><td>0,25 l</td><td>ein Cosel-Maß</td><td>kleines Kaliber</td><td class="num">3,90</td></tr>
+          <tr><td>0,5 l</td><td>ein August-Maß</td><td>großes Kaliber</td><td class="num">6,20</td></tr>
+          <tr><td>1,0 l</td><td>ein Narren-Maß</td><td>Kanonenkaliber</td><td class="num">11,20</td></tr>
+          <tr><td>Heiß</td><td>„Augusts Starker Kaffee“</td><td>„Starker Marschall“</td><td class="num">4,90</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Vom Fass</h3>
+    <ul class="plain">
+      <li><strong>Sophienkeller:</strong> Radeberger Pilsner, Freiberger Schwarzbier, Schöfferhofer Hefeweizen hell, Radler.</li>
+      <li><strong>Pulverturm:</strong> Radeberger Pilsner, Freiberger Kellerbier, Freiberger Schwarzbier, Schöfferhofer Hefeweizen hell, Radler.</li>
+    </ul>
+
+    <div class="callout">
+      <h3>Original Dresdner Trichtertrinken</h3>
+      <p>In beiden Häusern weihen die Mägde die Gäste in das Trichtertrinken ein; ausgeschenkt wird die Hausmarke „Coselträne“, 2 cl für 4,50 €. Im Sophienkeller tritt dazu regelmäßig August der Starke persönlich auf.</p>
+    </div>
+  </section>
+
+  <section id="bewertungen">
+    <h2>Was die Gäste sagen</h2>
+    <p class="sect-note">Statistisch sind die beiden Häuser kaum zu unterscheiden. Die Rangplätze stammen aus unterschiedlichen Abfragezeitpunkten — die Nenner (815 bzw. 783 Restaurants) sind deshalb nicht direkt vergleichbar.</p>
+
+    <div class="scores">
+      <div class="score s"><p class="src">Google · Sophienkeller</p><p class="val">4,6</p><p class="cnt">von 5</p></div>
+      <div class="score s"><p class="src">Tripadvisor · Sophienkeller</p><p class="val">4,1</p><p class="cnt">1.313 Bewertungen · Platz 26</p></div>
+      <div class="score s"><p class="src">Restaurant Guru · Sophienkeller</p><p class="val">4,5</p><p class="cnt">8.512 Bewertungen</p></div>
+      <div class="score p"><p class="src">Google · Pulverturm</p><p class="val">4,5</p><p class="cnt">3.594 Bewertungen</p></div>
+      <div class="score p"><p class="src">Tripadvisor · Pulverturm</p><p class="val">4,1</p><p class="cnt">1.044 Bewertungen · Platz 32</p></div>
+    </div>
+
+    <h3>Der Tenor</h3>
+    <blockquote>
+      Pulverturm und Sophienkeller sind wie Bruder und Schwester.
+      <cite>Tripadvisor-Gast, der beide besucht hat — Essen gleich gut, Unterhaltung identisch</cite>
+    </blockquote>
+
+    <p class="prose">Die Kritik trifft in beiden Häusern dieselben zwei Punkte: <strong>schwankende Speisenqualität</strong> und <strong>inkonsequenter Service</strong>. Beim Sophienkeller kehrt zusätzlich der Vorwurf wieder, das Personal sei zu Stoßzeiten überfordert und das Preis-Leistungs-Verhältnis stimme für das Gebotene nicht mehr — „für die Lokation mehr erwartet“ ist dort eine wiederkehrende Überschrift. Beim Pulverturm tauchen Servicebeschwerden seltener auf.</p>
+
+    <p class="prose">Auf der Habenseite steht in beiden Fällen dasselbe: die Gewölbe, die Abendunterhaltung mit Zauberern, Gauklern und Musikanten, große Portionen und, laut wiederkehrender Lobe, die Haxe, die Kartoffelsuppe und der Sauerbraten. Es sind Erlebnisrestaurants — wer eine Spitzenküche erwartet, bewertet am Konzept vorbei.</p>
+  </section>
+
+  <section id="praktisch">
+    <h2>Praktisches</h2>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">&nbsp;</th><th scope="col" class="col-s">Sophienkeller</th><th scope="col" class="col-p">Pulverturm</th></tr></thead>
+        <tbody>
+          <tr><td class="dish">Ruhetag</td><td><strong>Montag</strong> (außer feiertags)</td><td><strong>Mittwoch</strong></td></tr>
+          <tr><td class="dish">Öffnungszeiten</td><td>Di–Sa 11–23 Uhr<br>So 11–22 Uhr</td><td>Mo, Di, Do 12–23 Uhr<br>Fr, Sa 11–0 Uhr<br>So 11–23 Uhr</td></tr>
+          <tr><td class="dish">Reservierung</td><td>lange im Voraus nötig</td><td>laut Gästeberichten oft noch am selben Morgen möglich</td></tr>
+          <tr><td class="dish">Plätze</td><td>Zeithainer Lustlager allein ca. 130</td><td>rund 400 auf sieben Gewölbe</td></tr>
+          <tr><td class="dish">Fußweg</td><td>gegenüber Zwinger und Semperoper</td><td>direkt an der Frauenkirche, Neumarkt</td></tr>
+          <tr><td class="dish">Mit Kindern</td><td>Karussell, Kinderkarte, Hundekarte</td><td>Kinderkarte, Hundekarte, Kindergeburtstag zum Thema Henkersmahlzeit</td></tr>
+          <tr><td class="dish">Speisekarte in</td><td>Deutsch / Englisch</td><td>acht Sprachen</td></tr>
+          <tr><td class="dish">WLAN</td><td>kostenfrei</td><td>kostenfrei</td></tr>
+          <tr><td class="dish">Telefon</td><td>+49 351 49 72 60</td><td>+49 351 26 26 00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="gutschein">
+    <h2>Zum Gutschein</h2>
+
+    <div class="callout">
+      <h3>Wertgutschein, keine Menügutschein-Bindung</h3>
+      <p>Beide Karten führen denselben Satz: <em>„Unser Gutschein – das ideale Geschenk für jeden Anlass! … Der Wert des Gutscheins ist frei wählbar. Sprechen Sie einfach die netten Mägde und Grenadiere darauf an.“</em> Es geht also um einen Betrag, nicht um ein festgelegtes Menü — die Preise auf dieser Seite sagen damit direkt, wie weit er reicht.</p>
+      <p><strong>Ein Hinweis, der für die Einlösung in beiden Häusern spricht:</strong> Auch in der <em>Pulverturm</em>-Karte steht im Gutschein-Absatz „im Taschenbergpalais“ — also der Sophienkeller. Das kann ein Übernahmefehler im Layout sein, deutet aber darauf hin, dass die Gutscheine gemeinsam gehandhabt werden.</p>
+      <p><strong>Trotzdem vor dem Besuch kurz nachfragen:</strong> Es sind zwei getrennte Gesellschaften (Sophienkeller GmbH &amp; Co. KG und Pulverturm GmbH &amp; Co. KG). Was auf dem Gutschein selbst steht, gilt — im Zweifel ein Anruf: <strong>+49 351 49 72 60</strong> (Sophienkeller) oder <strong>+49 351 26 26 00</strong> (Pulverturm).</p>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Stand:</strong> 16. September 2026. Alle Preise aus den offiziellen Speisekarten (Sophienkeller gültig ab 5. Januar 2026, Pulverturm gültig bis 15. November 2026) und den Menü- und Buffetseiten der Häuser. Bewertungszahlen sind Momentaufnahmen. Angaben ohne Gewähr — vor dem Besuch bitte bei den Häusern prüfen.</p>
+    <p><strong>Quellen:</strong></p>
+    <ul>
+      <li><a href="https://sophienkeller-dresden.de/speisekarten">sophienkeller-dresden.de — Speisekarten</a> und <a href="https://sophienkeller-dresden.de/menue-buffetangebote/">Menü- &amp; Buffetangebote</a></li>
+      <li><a href="https://pulverturm-dresden.de/speisekarten/">pulverturm-dresden.de — Speisekarten</a> und <a href="https://pulverturm-dresden.de/menue-buffetangebote">Menü- &amp; Buffetangebote</a></li>
+      <li><a href="https://erlebnisgastronomie-dresden.de/">erlebnisgastronomie-dresden.de</a> — gemeinsame Seite beider Häuser</li>
+      <li><a href="https://www.tripadvisor.de/Restaurant_Review-g187399-d782343-Reviews-Sophienkeller-Dresden_Saxony.html">Tripadvisor — Sophienkeller</a> · <a href="https://www.tripadvisor.de/Restaurant_Review-g187399-d782302-Reviews-PulverTurm_an_der_Frauenkirche-Dresden_Saxony.html">Tripadvisor — Pulverturm</a></li>
+      <li><a href="https://www.holidaycheck.de/pr/bewertungen-sophienkeller/a5a896da-e452-3ffc-9b77-cc209909f813">HolidayCheck — Sophienkeller</a> · <a href="https://restaurantguru.com/Sophienkeller-im-Taschenbergpalais-Dresden">Restaurant Guru</a></li>
+    </ul>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="The Wednesday crucifixion laid over the creation week: the sign of Jonah counted in light and dark, the two Sabbaths, and the forty years to AD 70, with the verses.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Three Days and Three Nights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#EDF0F1;
+  --surface:#FFFFFF;
+  --ink:#1B2130;
+  --muted:#586174;
+  --rule:#D2D8DE;
+  --sun:#C98A12;
+  --sun-soft:#F5E6C2;
+  --sun-ink:#4A3508;
+  --sun-deep:#8F5E06;
+  --night:#26304D;
+  --night-ink:#DDE3F3;
+  --accent:#2E4784;
+  --blood:#9A2F2A;
+  --tomb:rgba(38,48,77,.10);
+  --quote-rule:#C3CBD5;
+  --ok:#2F6B45;
+  --no:#9A2F2A;
+  --open:#8A5A0B;
+  --display:"Frank Ruhl Libre", "Times New Roman", Georgia, serif;
+  --scripture:"EB Garamond", Garamond, "Times New Roman", Georgia, serif;
+  --body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F131B;
+    --surface:#161B26;
+    --ink:#E5E7EC;
+    --muted:#9AA3B4;
+    --rule:#29313F;
+    --sun:#E6AE45;
+    --sun-soft:#3A301C;
+    --sun-ink:#F4DDA8; --sun-deep:#E6AE45;
+    --night:#06080E;
+    --night-ink:#A9B5D6;
+    --accent:#9DB2EA;
+    --blood:#DB6F66;
+    --tomb:rgba(157,178,234,.10);
+    --quote-rule:#39435A;
+    --ok:#7CC496;
+    --no:#E07C73;
+    --open:#E6AE45;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F131B;
+  --surface:#161B26;
+  --ink:#E5E7EC;
+  --muted:#9AA3B4;
+  --rule:#29313F;
+  --sun:#E6AE45;
+  --sun-soft:#3A301C;
+  --sun-ink:#F4DDA8; --sun-deep:#E6AE45;
+  --night:#06080E;
+  --night-ink:#A9B5D6;
+  --accent:#9DB2EA;
+  --blood:#DB6F66;
+  --tomb:rgba(157,178,234,.10);
+  --quote-rule:#39435A;
+  --ok:#7CC496;
+  --no:#E07C73;
+  --open:#E6AE45;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.page{
+  max-width:880px;
+  margin:0 auto;
+  padding-inline:20px;
+  padding-block:40px 64px;
+}
+.prose{max-width:66ch}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,6vw,3.6rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3.4vw,2rem)}
+h3{font-size:1.15rem}
+p{margin:0}
+.eyebrow{
+  font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+}
+.lede{font-size:1.14rem;color:var(--ink)}
+.stack{display:flex;flex-direction:column;gap:14px}
+.stack-lg{display:flex;flex-direction:column;gap:22px}
+header.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+section{
+  display:flex;flex-direction:column;gap:18px;
+  padding-block:36px 8px;
+  border-top:1px solid var(--rule);
+  margin-top:36px;
+}
+.gk,.he{font-family:var(--scripture);font-size:1.08em}
+.he{font-family:var(--display);font-weight:500}
+em.tr{font-style:italic}
+a{color:var(--accent)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--tomb);padding:1px 5px;border-radius:4px;word-break:break-word}
+
+/* Scripture */
+blockquote{
+  margin:0;
+  padding:4px 0 4px 18px;
+  border-left:3px solid var(--quote-rule);
+  font-family:var(--scripture);
+  font-size:1.16rem;
+  line-height:1.55;
+  color:var(--ink);
+}
+blockquote cite{
+  display:block;margin-top:6px;
+  font-family:var(--body);font-style:normal;font-size:.76rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+blockquote.key{
+  border-left-color:var(--sun);
+  font-size:clamp(1.3rem,3vw,1.6rem);
+  line-height:1.45;
+}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:18px 28px}
+
+/* The band: numbered days above, light and dark counted inside */
+.mode{display:inline-flex;flex-wrap:wrap;gap:2px;padding:3px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);align-self:flex-start}
+.mode button{font:inherit;font-size:.84rem;font-weight:600;color:var(--muted);background:transparent;border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+.mode button[aria-pressed="true"]{background:var(--night);color:var(--night-ink)}
+.mode button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.band-scroll{overflow-x:auto;margin-inline:-4px;padding:4px 4px 10px}
+.band{
+  min-width:800px;
+  display:grid;
+  grid-template-columns:repeat(10,1fr);
+  row-gap:6px;
+}
+.br{
+  grid-row:1;
+  margin-inline:3px;
+  border:1.5px solid var(--muted);border-bottom:none;border-radius:8px 8px 0 0;
+  padding:6px 6px 10px;
+  text-align:center;
+  font-size:.74rem;line-height:1.25;color:var(--muted);
+  font-variant-numeric:tabular-nums;
+}
+.br b{display:block;font-family:var(--display);font-size:1.08rem;font-weight:700;color:var(--ink)}
+.br.cross b{color:var(--blood)}
+.br.new b{color:var(--sun-deep)}
+.br.open-l{border-left:none;border-top-left-radius:0}
+.br.open-r{border-right:none;border-top-right-radius:0}
+.seg{
+  grid-row:2;
+  min-height:104px;
+  padding:10px 8px;
+  display:flex;flex-direction:column;gap:3px;
+  font-size:.78rem;line-height:1.3;
+  border-right:1px solid var(--ground);
+}
+.seg b{font-family:var(--display);font-size:1rem;font-weight:700}
+.seg .rt{margin-top:auto;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+.seg.light{background:var(--sun-soft);color:var(--sun-ink);border-top:4px solid var(--sun)}
+.seg.dark{background:var(--night);color:var(--night-ink);border-top:4px solid var(--night)}
+.seg.cross{border-top-color:var(--blood)}
+.seg.first{border-radius:8px 0 0 8px}
+.seg.last{border-radius:0 8px 8px 0;border-right:none}
+.tb{
+  grid-row:3;grid-column:3 / 9;
+  border:2px solid var(--accent);border-top:none;
+  padding:8px 8px 6px;
+  text-align:center;
+  font-size:.76rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+}
+.mark{
+  grid-row:4;
+  text-align:center;
+  font-size:.76rem;line-height:1.3;color:var(--ink);
+  position:relative;padding-top:12px;
+}
+.mark::before{
+  content:"";position:absolute;top:-6px;left:50%;width:2px;height:14px;background:var(--accent);transform:translateX(-1px);
+}
+.mark strong{display:block;font-weight:600}
+.band-cap{font-size:.95rem}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.8rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:14px;border-radius:3px;display:inline-block}
+.sw.l{background:var(--sun-soft);border-top:3px solid var(--sun)}
+.sw.d{background:var(--night)}
+.sw.b{background:transparent;border:1.5px solid var(--muted);border-bottom:none;border-radius:4px 4px 0 0}
+.sw.t{background:transparent;border:2px solid var(--accent);border-top:none;height:10px;border-radius:0}
+
+/* Tables */
+.table-scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:none}
+th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--ground)}
+td.day{font-family:var(--display);font-weight:700;font-size:1.25rem;width:3.2rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.focus td{background:var(--tomb)}
+tr.focus td.day{color:var(--accent)}
+tr.cross td.day{color:var(--blood)}
+.week{min-width:640px}
+.phr{min-width:600px}
+.yrs{min-width:420px}
+.num{font-variant-numeric:tabular-nums}
+.ref{color:var(--muted);font-size:.84em;white-space:nowrap}
+.y{color:var(--ok);font-weight:600}
+.n{color:var(--no);font-weight:600}
+.o{color:var(--open);font-weight:600}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+
+/* Side note */
+.note{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:16px 18px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.note h3{font-size:1.05rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
+ul.plain{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);font-size:.84rem;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+@media (max-width:520px){
+  body{font-size:15.5px}
+  .page{padding-inline:16px;padding-block:28px 48px}
+  blockquote{font-size:1.08rem}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">The sign of Jonah · Nisan 14, AD 31</p>
+  <h1>Three Days and Three Nights</h1>
+  <p class="lede prose">Christ was crucified on the fourth day of the week and laid in the tomb as that day's light was ending. He lay there three whole days and three whole nights, and rose as the light of the seventh day ended. When the first day of the new week dawned, the tomb was already empty. Laid over the six days of creation, the week falls into place without a single partial day to stretch.</p>
+  <blockquote class="key">For as Jonas was three days and three nights in the whale's belly; so shall the Son of man be three days and three nights in the heart of the earth.<cite>Matthew 12:40</cite></blockquote>
+</header>
+
+<section aria-labelledby="count">
+  <div class="stack prose">
+    <p class="eyebrow">Counted in light and dark</p>
+    <h2 id="count">Three of each, with nothing partial</h2>
+    <p>Christ counts days and nights as separate things: <span class="gk">τρεῖς ἡμέρας καὶ τρεῖς νύκτας</span> (<em class="tr">treis hēmeras kai treis nyktas</em>, "three days and three nights"). The strip below counts exactly that — the tomb's nights and days, from the burial as the cross day's light ended to the rising as the Sabbath's light ended. The brackets above it are the numbered days of the creation week, each made of one night and one day. Scripture does not say whether a numbered day opens with its evening or its morning, so both bracketings can be shown.</p>
+  </div>
+
+  <div class="mode" role="group" aria-label="How the numbered days are bracketed">
+    <button type="button" id="mode-even" aria-pressed="true">Evening to evening</button>
+    <button type="button" id="mode-morn" aria-pressed="false">Morning to morning</button>
+  </div>
+
+  <div class="band-scroll">
+    <div class="band">
+      <div class="br cross" data-set="even" style="grid-column:1 / 3"><b>Day 4</b>Nisan 14</div>
+      <div class="br" data-set="even" style="grid-column:3 / 5"><b>Day 5</b>Nisan 15</div>
+      <div class="br" data-set="even" style="grid-column:5 / 7"><b>Day 6</b>Nisan 16</div>
+      <div class="br" data-set="even" style="grid-column:7 / 9"><b>Day 7</b>Nisan 17</div>
+      <div class="br new" data-set="even" style="grid-column:9 / 11"><b>Day 8</b>Nisan 18</div>
+
+      <div class="br open-l" data-set="morn" style="grid-column:1 / 2" hidden><b>Day 3</b>Nisan 13</div>
+      <div class="br cross" data-set="morn" style="grid-column:2 / 4" hidden><b>Day 4</b>Nisan 14</div>
+      <div class="br" data-set="morn" style="grid-column:4 / 6" hidden><b>Day 5</b>Nisan 15</div>
+      <div class="br" data-set="morn" style="grid-column:6 / 8" hidden><b>Day 6</b>Nisan 16</div>
+      <div class="br" data-set="morn" style="grid-column:8 / 10" hidden><b>Day 7</b>Nisan 17</div>
+      <div class="br new open-r" data-set="morn" style="grid-column:10 / 11" hidden><b>Day 8</b>Nisan 18</div>
+
+      <div class="seg dark first"><b>Night</b><span>Supper, Gethsemane, arrest</span><span class="rt">Tue night</span></div>
+      <div class="seg light cross"><b>Light</b><span>The cross</span><span class="rt">Wed</span></div>
+      <div class="seg dark"><b>Night 1</b><span class="rt">Wed night</span></div>
+      <div class="seg light"><b>Day 1</b><span>High Sabbath</span><span class="rt">Thu</span></div>
+      <div class="seg dark"><b>Night 2</b><span class="rt">Thu night</span></div>
+      <div class="seg light"><b>Day 2</b><span>Spices bought and prepared</span><span class="rt">Fri</span></div>
+      <div class="seg dark"><b>Night 3</b><span class="rt">Fri night</span></div>
+      <div class="seg light"><b>Day 3</b><span>Weekly Sabbath</span><span class="rt">Sat</span></div>
+      <div class="seg dark"><b>Night</b><span>Tomb already empty</span><span class="rt">Sat night</span></div>
+      <div class="seg light last"><b>Dawn</b><span>Found risen</span><span class="rt">Sun</span></div>
+
+      <div class="tb">In the tomb · 3 nights + 3 days · 72 hours</div>
+      <div class="mark" style="grid-column:2 / 4"><strong>Laid in the tomb</strong>as the cross day's light ends</div>
+      <div class="mark" style="grid-column:8 / 10"><strong>Risen</strong>as the Sabbath's light ends</div>
+    </div>
+  </div>
+
+  <p class="band-cap prose" id="cap-even"><strong>Evening to evening.</strong> Each numbered day opens with its night. He was laid in the tomb as day 4 closed, so day 5 began with Him already there; Night 1 and Day 1 of the tomb make up day 5. He rose as day 7 closed, at the first moment of day 8. The tomb count is the same on either bracketing.</p>
+  <p class="band-cap prose" id="cap-morn" hidden><strong>Morning to morning.</strong> Each numbered day opens with its light, and an evening keeps the name of the day that is ending (Exod 12:18; Lev 23:32). Night 1 of the tomb still carries day 4's name. He rose at the close of day 7's light, still day 7 by name, and day 8 began at the dawn when the women came. The tomb count is the same on either bracketing.</p>
+
+  <div class="legend" aria-hidden="true">
+    <span><i class="sw b"></i>Numbered day of the creation week</span>
+    <span><i class="sw l"></i>Day: the light</span>
+    <span><i class="sw d"></i>Night: the darkness</span>
+    <span><i class="sw t"></i>In the tomb</span>
+  </div>
+
+  <div class="quotes">
+    <blockquote>And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.<cite>Genesis 1:5</cite></blockquote>
+    <blockquote>Are there not twelve hours in the day? If any man walk in the day, he stumbleth not, because he seeth the light of this world. But if a man walk in the night, he stumbleth, because there is no light in him.<cite>John 11:9–10</cite></blockquote>
+  </div>
+  <p class="prose">God named <span class="he">יוֹם</span> (<em class="tr">yom</em>, "day") and <span class="he">לַיְלָה</span> (<em class="tr">laylah</em>, "night") apart, and Christ counts them apart. Jonah's count is the same: <span class="he">שְׁלֹשָׁה יָמִים וּשְׁלֹשָׁה לֵילוֹת</span> (<em class="tr">sheloshah yamim ushloshah leylot</em>, "three days and three nights," Jonah 1:17). The Gospels do not narrate the moment of rising; the count places it.</p>
+</section>
+
+<section aria-labelledby="template">
+  <div class="stack prose">
+    <p class="eyebrow">The creation week as the template</p>
+    <h2 id="template">The lights on day 4, the rest on day 7, a new week on day 8</h2>
+    <p>Counted by the numbered days of Genesis instead of Roman weekday names, the passion week lands on the creation week day for day. The Light of the world is put to death on the day the lights were made, lies still through the day God rested, and the new week begins with an empty tomb.</p>
+  </div>
+
+  <div class="table-scroll">
+    <table class="week">
+      <thead><tr><th>Day</th><th>Creation</th><th>The passion week</th><th>At a thousand years a day</th></tr></thead>
+      <tbody>
+        <tr><td class="day">1</td><td>Light <span class="ref">Gen 1:3–5</span></td><td>—</td><td class="num">Years 0–1000</td></tr>
+        <tr><td class="day">2</td><td>The firmament divides the waters <span class="ref">Gen 1:6–8</span></td><td>—</td><td class="num">1000–2000</td></tr>
+        <tr><td class="day">3</td><td>Dry land, grass, herbs, trees <span class="ref">Gen 1:9–13</span></td><td>—</td><td class="num">2000–3000</td></tr>
+        <tr class="focus cross"><td class="day">4</td><td><strong>Sun, moon and stars made</strong> <span class="ref">Gen 1:14–19</span></td><td><strong>The cross.</strong> Darkness from the sixth to the ninth hour; laid in the tomb as the day's light ended <span class="ref">Mark 15:33, 42</span></td><td>3000–4000: the Light of the world comes and is put to death</td></tr>
+        <tr class="focus"><td class="day">5</td><td>Water creatures and birds <span class="ref">Gen 1:20–23</span></td><td>In the tomb: the High Sabbath <span class="ref">John 19:31</span></td><td>4000–5000: the church age</td></tr>
+        <tr class="focus"><td class="day">6</td><td>Land animals; man in God's image <span class="ref">Gen 1:24–31</span></td><td>In the tomb: the women buy and prepare spices <span class="ref">Mark 16:1; Luke 23:56</span></td><td>5000–6000: the church age</td></tr>
+        <tr class="focus"><td class="day">7</td><td><strong>God rested</strong> <span class="ref">Gen 2:2–3</span></td><td>In the tomb: the weekly Sabbath. <strong>Risen as its light ended</strong> <span class="ref">Luke 23:56</span></td><td>6000–7000: the Millennium</td></tr>
+        <tr class="focus"><td class="day">8</td><td>A new week begins</td><td><strong>The tomb found empty at dawn</strong> <span class="ref">Mark 16:2</span></td><td>The new creation <span class="ref">1 Cor 15:28</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="quotes">
+    <blockquote>And God made two great lights; the greater light to rule the day, and the lesser light to rule the night: he made the stars also. … And the evening and the morning were the fourth day.<cite>Genesis 1:16, 19</cite></blockquote>
+    <blockquote>I am the light of the world: he that followeth me shall not walk in darkness, but shall have the light of life.<cite>John 8:12</cite></blockquote>
+    <blockquote>And on the seventh day God ended his work which he had made; and he rested on the seventh day from all his work which he had made. And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work which he had made.<cite>Genesis 2:2–3</cite></blockquote>
+    <blockquote>And he is the head of the body, the church: who is the beginning, the firstborn from the dead; that in all things he might have the preeminence.<cite>Colossians 1:18</cite></blockquote>
+  </div>
+
+  <div class="note">
+    <h3>The same week at a thousand years a day</h3>
+    <p class="prose">The corpus reads the creation week at a second scale as well: six days of work as six thousand years, the seventh as the Millennium, the eighth as the new creation. On that scale the cross stands near the four-thousandth year, on day 4.</p>
+    <div class="quotes">
+      <blockquote>But, beloved, be not ignorant of this one thing, that one day is with the Lord as a thousand years, and a thousand years as one day.<cite>2 Peter 3:8</cite></blockquote>
+      <blockquote>After two days will he revive us: in the third day he will raise us up, and we shall live in his sight.<cite>Hosea 6:2</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="evening">
+  <div class="stack prose">
+    <p class="eyebrow">The burial and the rising</p>
+    <h2 id="evening">Both at the end of a day's light</h2>
+    <p>Scripture names an evening after the day whose light is ending. The burial evening is still "the preparation," and the Sabbath had not yet begun, so He was laid in the tomb in the last light of day 4. The Sabbath is kept from evening to evening, so the weekly Sabbath closed as day 7's light ended: 72 hours after the burial.</p>
+  </div>
+  <div class="quotes">
+    <blockquote>And now when the even was come, because it was the preparation, that is, the day before the sabbath…<cite>Mark 15:42</cite></blockquote>
+    <blockquote>And that day was the preparation, and the sabbath drew on.<cite>Luke 23:54</cite></blockquote>
+    <blockquote>There laid they Jesus therefore because of the Jews' preparation day; for the sepulchre was nigh at hand.<cite>John 19:42</cite></blockquote>
+    <blockquote>It shall be unto you a sabbath of rest, and ye shall afflict your souls: in the ninth day of the month at even, from even unto even, shall ye celebrate your sabbath.<cite>Leviticus 23:32</cite></blockquote>
+  </div>
+</section>
+
+<section aria-labelledby="sabbaths">
+  <div class="stack prose">
+    <p class="eyebrow">Two Sabbaths that week</p>
+    <h2 id="sabbaths">A working day between two days of rest</h2>
+    <p>Mark has the women buy spices after a Sabbath. Luke has them prepare spices and then rest on the Sabbath. With one Sabbath those two statements collide. With the High Sabbath of Nisan 15 and the weekly Sabbath of Nisan 17, Friday sits between them as the working day.</p>
+  </div>
+  <div class="quotes">
+    <blockquote>The Jews therefore, because it was the preparation, that the bodies should not remain upon the cross on the sabbath day, (for that sabbath day was an high day,) besought Pilate that their legs might be broken, and that they might be taken away.<cite>John 19:31</cite></blockquote>
+    <blockquote>And when the sabbath was past, Mary Magdalene, and Mary the mother of James, and Salome, had bought sweet spices, that they might come and anoint him.<cite>Mark 16:1</cite></blockquote>
+    <blockquote>And they returned, and prepared spices and ointments; and rested the sabbath day according to the commandment.<cite>Luke 23:56</cite></blockquote>
+  </div>
+</section>
+
+<section aria-labelledby="friday">
+  <div class="stack prose">
+    <p class="eyebrow">Why Friday cannot hold</p>
+    <h2 id="friday">Granting every day, Friday still has two nights</h2>
+    <p>Count Friday's last minutes as a whole day, and the nights between Friday afternoon and Sunday dawn are still two. A third comes only by counting the night before the cross, which Christ spent in Gethsemane and under arrest (Matt 26:36–57), not in the heart of the earth. The rabbinic rule that a touched day-and-night counts as whole counts calendar units; Christ counts the light and the dark themselves.</p>
+  </div>
+  <div class="table-scroll">
+    <table class="phr">
+      <thead><tr><th>Phrase</th><th>Text</th><th>Wednesday</th><th>Friday</th></tr></thead>
+      <tbody>
+        <tr><td>"three days and three nights"</td><td class="ref">Matt 12:40</td><td><span class="y">Holds.</span> Three nights, three days</td><td><span class="n">Fails.</span> Two nights, unless Gethsemane is counted</td></tr>
+        <tr><td>"after three days"</td><td class="ref">Matt 27:63; Mark 8:31</td><td><span class="y">Holds.</span> Exactly 72 hours</td><td><span class="n">Fails.</span> About 36 hours</td></tr>
+        <tr><td>"the third day"</td><td class="ref">Matt 16:21; 1 Cor 15:4</td><td><span class="y">Holds.</span> Saturday, the third day after the burial</td><td><span class="y">Holds.</span> Sunday, counting Friday as day 1</td></tr>
+        <tr><td>"in three days"</td><td class="ref">John 2:19</td><td><span class="y">Holds.</span></td><td><span class="y">Holds.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <blockquote>Saying, Sir, we remember that that deceiver said, while he was yet alive, After three days I will rise again. Command therefore that the sepulchre be made sure until the third day…<cite>Matthew 27:63–64</cite></blockquote>
+  <p class="prose">The Pharisees use "after three days" and "until the third day" for one deadline. On Wednesday the two meet without stretching either. On Friday, "after three days" has to shrink to about 36 hours.</p>
+</section>
+
+<section aria-labelledby="dawn">
+  <div class="stack prose">
+    <p class="eyebrow">Dawn on the first day</p>
+    <h2 id="dawn">The women came at sunrise; He had already risen</h2>
+    <p>Matthew's "dawn" marks when the women arrived, the same visit Mark, Luke and John place at sunrise. The verb <span class="gk">ἐπιφώσκω</span> (<em class="tr">epiphōskō</em>, "to grow light, to dawn") names a day coming on and takes its hour from the context: Luke uses it for the Sabbath coming on at evening, during the burial (Luke 23:54). No hour of the first day found Christ in the tomb.</p>
+  </div>
+  <div class="quotes">
+    <blockquote>In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.<cite>Matthew 28:1</cite></blockquote>
+    <blockquote>And very early in the morning the first day of the week, they came unto the sepulchre at the rising of the sun.<cite>Mark 16:2</cite></blockquote>
+    <blockquote>The first day of the week cometh Mary Magdalene early, when it was yet dark, unto the sepulchre, and seeth the stone taken away from the sepulchre.<cite>John 20:1</cite></blockquote>
+    <blockquote>But now is Christ risen from the dead, and become the firstfruits of them that slept.<cite>1 Corinthians 15:20</cite></blockquote>
+  </div>
+</section>
+
+<section aria-labelledby="forty">
+  <div class="stack prose">
+    <p class="eyebrow">The rest of the sign</p>
+    <h2 id="forty">Jonah's forty days, this generation's forty years</h2>
+    <p>Christ names the three days, then turns in the next breath to Nineveh, which repented inside Jonah's forty-day warning. The sign is given to "this generation," <span class="gk">γενεά</span> (<em class="tr">genea</em>, "generation"), and Scripture sizes a judged generation at forty years. Counted inclusively from the cross, only AD 31 reaches AD 70 in forty.</p>
+  </div>
+  <div class="quotes">
+    <blockquote>And Jonah began to enter into the city a day's journey, and he cried, and said, Yet forty days, and Nineveh shall be overthrown.<cite>Jonah 3:4</cite></blockquote>
+    <blockquote>For as Jonas was a sign unto the Ninevites, so shall also the Son of man be to this generation.<cite>Luke 11:30</cite></blockquote>
+    <blockquote>Verily I say unto you, This generation shall not pass, till all these things be fulfilled.<cite>Matthew 24:34</cite></blockquote>
+    <blockquote>And the LORD's anger was kindled against Israel, and he made them wander in the wilderness forty years, until all the generation, that had done evil in the sight of the LORD, was consumed.<cite>Numbers 32:13</cite></blockquote>
+  </div>
+  <div class="two">
+    <div class="table-scroll">
+      <table class="yrs">
+        <thead><tr><th>Crucifixion</th><th>Years to AD 70, inclusive</th><th>Forty?</th></tr></thead>
+        <tbody>
+          <tr><td class="num">AD 30</td><td class="num">41</td><td class="n">No</td></tr>
+          <tr class="focus"><td class="num"><strong>AD 31</strong></td><td class="num"><strong>40</strong></td><td class="y">Yes</td></tr>
+          <tr><td class="num">AD 32</td><td class="num">39</td><td class="n">No</td></tr>
+          <tr><td class="num">AD 33</td><td class="num">38</td><td class="n">No, and a Friday</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <h3>Precedent, not the ground</h3>
+      <p>God once matched forty days to forty years for a generation that saw His works and refused. The length of the window rests on "this generation"; this verse shows the same correspondence made before.</p>
+      <blockquote>After the number of the days in which ye searched the land, even forty days, each day for a year, shall ye bear your iniquities, even forty years…<cite>Numbers 14:34</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="status">
+  <div class="stack prose">
+    <p class="eyebrow">What is fixed and what is open</p>
+    <h2 id="status">One question stays open, and nothing rests on it</h2>
+  </div>
+  <div class="table-scroll">
+    <table class="phr">
+      <thead><tr><th>Point</th><th>Ground</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Wednesday, Nisan 14, AD 31</td><td>Daniel 9: autumn AD 27 + 3½ years</td><td><span class="pill y">Settled</span></td></tr>
+        <tr><td>Day 4, the day the lights were made</td><td>Gen 1:14–19</td><td><span class="pill y">Settled</span></td></tr>
+        <tr><td>Three days and three nights, counted as light and dark</td><td>Matt 12:40; Gen 1:5; John 11:9–10</td><td><span class="pill y">Firm</span></td></tr>
+        <tr><td>Two Sabbaths with a working day between</td><td>John 19:31; Mark 16:1; Luke 23:56</td><td><span class="pill y">Firm</span></td></tr>
+        <tr><td>Laid in the tomb as day 4's light ended; risen as day 7's light ended</td><td>Mark 15:42; Lev 23:32; the 72-hour count</td><td><span class="pill y">Firm</span></td></tr>
+        <tr><td>Found risen at the dawn of the first day</td><td>Matt 28:1; Mark 16:2; John 20:1</td><td><span class="pill y">Firm</span></td></tr>
+        <tr><td>Whether that Saturday evening closes day 7 or opens day 8</td><td>See below</td><td><span class="pill o">Open</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <h3>When does the day begin?</h3>
+    <p class="prose">Genesis 1:5 counts <span class="he">עֶרֶב</span> (<em class="tr">erev</em>, "evening") and <span class="he">בֹּקֶר</span> (<em class="tr">boqer</em>, "morning") as the first day without saying which one opens it. Scripture names an evening after the day whose light is ending: "the fourteenth day of the month at even" (Exod 12:18), "the ninth day of the month at even" (Lev 23:32). That favors a morning start. John calls the dark before dawn "the first day of the week" (John 20:1) and the evening after it "the same day" (John 20:19), which fits neither reckoning cleanly.</p>
+    <p class="prose">Either way, the first day belongs to the risen Christ: if the day begins at evening, He rose at its first moment; if it begins at morning, He rose before it began.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Scripture quoted from the King James Version.</p>
+  <p>Drawn from the notes <code>the-two-witnesses-creation-week-and-passion-week</code>, <code>the-31-ad-wednesday-crucifixion</code>, <code>rebuttal-friday-crucifixion</code> and <code>daniels-70th-week-fulfilled</code>.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var even = document.getElementById('mode-even');
+  var morn = document.getElementById('mode-morn');
+  var capEven = document.getElementById('cap-even');
+  var capMorn = document.getElementById('cap-morn');
+  function setMode(mode){
+    var brackets = document.querySelectorAll('.br');
+    for (var i = 0; i < brackets.length; i++){
+      brackets[i].hidden = brackets[i].getAttribute('data-set') !== mode;
+    }
+    capEven.hidden = mode !== 'even';
+    capMorn.hidden = mode !== 'morn';
+    even.setAttribute('aria-pressed', String(mode === 'even'));
+    morn.setAttribute('aria-pressed', String(mode === 'morn'));
+  }
+  even.addEventListener('click', function(){ setMode('even'); });
+  morn.addEventListener('click', function(){ setMode('morn'); });
+})();
+</script>
+</body>
+</html>

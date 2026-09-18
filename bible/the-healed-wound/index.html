@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="The order of Revelation 13 — a head wounded, the wound healed, and only then forty-two months of authority — with the dates that order allows and the creation-week overlay.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>The Healed Wound</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#EDF0F1;
+  --surface:#FFFFFF;
+  --ink:#1B2130;
+  --muted:#586174;
+  --rule:#D2D8DE;
+  --sun:#C98A12;
+  --sun-soft:#F5E6C2;
+  --sun-ink:#4A3508;
+  --sun-deep:#8F5E06;
+  --night:#26304D;
+  --night-ink:#DDE3F3;
+  --accent:#2E4784;
+  --blood:#9A2F2A;
+  --blood-soft:#F3DEDC;
+  --tomb:rgba(38,48,77,.10);
+  --quote-rule:#C3CBD5;
+  --ok:#2F6B45;
+  --no:#9A2F2A;
+  --open:#8A5A0B;
+  --display:"Frank Ruhl Libre", "Times New Roman", Georgia, serif;
+  --scripture:"EB Garamond", Garamond, "Times New Roman", Georgia, serif;
+  --body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F131B;
+    --surface:#161B26;
+    --ink:#E5E7EC;
+    --muted:#9AA3B4;
+    --rule:#29313F;
+    --sun:#E6AE45;
+    --sun-soft:#3A301C;
+    --sun-ink:#F4DDA8;
+    --sun-deep:#E6AE45;
+    --night:#06080E;
+    --night-ink:#A9B5D6;
+    --accent:#9DB2EA;
+    --blood:#DB6F66;
+    --blood-soft:#3A1E1C;
+    --tomb:rgba(157,178,234,.10);
+    --quote-rule:#39435A;
+    --ok:#7CC496;
+    --no:#E07C73;
+    --open:#E6AE45;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F131B;
+  --surface:#161B26;
+  --ink:#E5E7EC;
+  --muted:#9AA3B4;
+  --rule:#29313F;
+  --sun:#E6AE45;
+  --sun-soft:#3A301C;
+  --sun-ink:#F4DDA8;
+  --sun-deep:#E6AE45;
+  --night:#06080E;
+  --night-ink:#A9B5D6;
+  --accent:#9DB2EA;
+  --blood:#DB6F66;
+  --blood-soft:#3A1E1C;
+  --tomb:rgba(157,178,234,.10);
+  --quote-rule:#39435A;
+  --ok:#7CC496;
+  --no:#E07C73;
+  --open:#E6AE45;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:880px;margin:0 auto;padding-inline:20px;padding-block:40px 64px}
+.prose{max-width:66ch}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,6vw,3.6rem);letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,3.4vw,2rem)}
+h3{font-size:1.15rem}
+p{margin:0}
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:1.14rem;color:var(--ink)}
+.stack{display:flex;flex-direction:column;gap:14px}
+header.hero{display:flex;flex-direction:column;gap:14px;padding-bottom:8px}
+section{display:flex;flex-direction:column;gap:18px;padding-block:36px 8px;border-top:1px solid var(--rule);margin-top:36px}
+.gk,.he{font-family:var(--scripture);font-size:1.08em}
+.he{font-family:var(--display);font-weight:500}
+em.tr{font-style:italic}
+a{color:var(--accent)}
+
+blockquote{margin:0;padding:4px 0 4px 18px;border-left:3px solid var(--quote-rule);font-family:var(--scripture);font-size:1.16rem;line-height:1.55;color:var(--ink)}
+blockquote cite{display:block;margin-top:6px;font-family:var(--body);font-style:normal;font-size:.76rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+blockquote.key{border-left-color:var(--blood);font-size:clamp(1.3rem,3vw,1.6rem);line-height:1.45}
+
+/* The clause chain — numbered because the order is the argument */
+ol.chain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;counter-reset:cl}
+ol.chain li{
+  counter-increment:cl;
+  display:grid;grid-template-columns:2rem 1fr;gap:4px 14px;
+  padding:14px 16px;background:var(--surface);border:1px solid var(--rule);
+}
+ol.chain li:first-child{border-radius:10px 10px 0 0}
+ol.chain li:last-child{border-radius:0 0 10px 10px}
+ol.chain li + li{border-top:none}
+ol.chain li::before{
+  content:counter(cl);
+  grid-row:1 / span 3;
+  font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--muted);
+  font-variant-numeric:tabular-nums;line-height:1.1;
+}
+ol.chain .en{font-family:var(--scripture);font-size:1.1rem;line-height:1.4}
+ol.chain .gr{font-size:.92rem;color:var(--muted)}
+ol.chain .rf{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+ol.chain li.wound{background:var(--blood-soft);border-color:var(--blood)}
+ol.chain li.wound::before,ol.chain li.wound .rf{color:var(--blood)}
+ol.chain li.grant{background:var(--tomb);border-color:var(--accent)}
+ol.chain li.grant::before,ol.chain li.grant .rf{color:var(--accent)}
+
+/* The dated spine */
+ol.tl{list-style:none;margin:0;padding:0 0 0 30px;position:relative;display:flex;flex-direction:column;gap:26px}
+ol.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--rule)}
+ol.tl li{position:relative;display:flex;flex-direction:column;gap:6px}
+ol.tl li::before{
+  content:"";position:absolute;left:-30px;top:6px;width:16px;height:16px;border-radius:50%;
+  background:var(--surface);border:3px solid var(--muted);
+}
+ol.tl li.w::before{border-color:var(--blood);background:var(--blood)}
+ol.tl li.h::before{border-color:var(--accent);background:var(--accent)}
+ol.tl li.r::before{border-color:var(--sun);background:var(--sun)}
+ol.tl .yr{font-family:var(--display);font-weight:700;font-size:1.5rem;line-height:1;font-variant-numeric:tabular-nums}
+ol.tl li.w .yr{color:var(--blood)}
+ol.tl li.h .yr{color:var(--accent)}
+ol.tl li.r .yr{color:var(--sun-deep)}
+ol.tl .what{font-weight:600}
+ol.tl .cl{font-family:var(--scripture);font-size:1.06rem;color:var(--ink)}
+ol.tl .rf{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+ol.tl .span{
+  margin:2px 0 0;padding:8px 12px;border-left:3px solid var(--accent);background:var(--tomb);
+  font-size:.9rem;color:var(--ink);
+}
+
+.table-scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.92rem;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:none}
+th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--ground)}
+.wide{min-width:620px}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.ref{color:var(--muted);font-size:.84em}
+.y{color:var(--ok);font-weight:600}
+.n{color:var(--no);font-weight:600}
+.o{color:var(--open);font-weight:600}
+.pill{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+
+.note{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.note h3{font-size:1.05rem}
+.note.hot{border-color:var(--blood)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
+ul.plain{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);font-size:.84rem;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+@media (max-width:520px){
+  body{font-size:15.5px}
+  .page{padding-inline:16px;padding-block:28px 48px}
+  blockquote{font-size:1.08rem}
+  ol.chain li{grid-template-columns:1.5rem 1fr;padding:12px 12px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Revelation 13 · the order of the events</p>
+  <h1>The Healed Wound</h1>
+  <p class="lede prose">One of the beast's heads is struck dead, the wound is healed, the world wonders, and only then is authority given for forty-two months. That order is not decoration — it dates the whole chapter. Whatever healed the wound must stand before the months begin, and the months are the 1260 years of papal supremacy, 538 to 1798.</p>
+  <blockquote class="key">And I saw one of his heads as it were wounded to death; and his deadly wound was healed: and all the world wondered after the beast.<cite>Revelation 13:3</cite></blockquote>
+</header>
+
+<section aria-labelledby="chain">
+  <div class="stack">
+    <p class="eyebrow">First</p>
+    <h2 id="chain">The chapter gives its own order</h2>
+    <p class="prose">Verses 1 to 5 run as a chain of past-tense verbs, each one following the last. Read them in order and the sequence is not a list of themes but a history: a wound, a healing, the world's wonder, worship, and then a grant of time.</p>
+  </div>
+
+  <ol class="chain">
+    <li>
+      <p class="en">"I saw a beast rise up out of the sea, having seven heads and ten horns"</p>
+      <p class="gr"><span class="gk">θηρίον ἀναβαῖνον</span> — <em class="tr">thērion anabainon</em>, "a beast coming up"</p>
+      <p class="rf">Revelation 13:1</p>
+    </li>
+    <li>
+      <p class="en">"the dragon gave him his power, and his seat, and great authority"</p>
+      <p class="gr"><span class="gk">ἔδωκεν αὐτῷ ὁ δράκων</span> — <em class="tr">edōken autō ho drakōn</em>, "the dragon gave to him"</p>
+      <p class="rf">Revelation 13:2</p>
+    </li>
+    <li class="wound">
+      <p class="en">"one of his heads as it were wounded to death"</p>
+      <p class="gr"><span class="gk">μίαν τῶν κεφαλῶν ὡς ἐσφαγμένην εἰς θάνατον</span> — <em class="tr">mian tōn kephalōn hōs esphagmenēn eis thanaton</em>, "one of the heads as slain unto death"</p>
+      <p class="rf">Revelation 13:3a</p>
+    </li>
+    <li class="wound">
+      <p class="en">"and his deadly wound was healed"</p>
+      <p class="gr"><span class="gk">ἐθεραπεύθη</span> — <em class="tr">etherapeuthē</em>, "was healed"</p>
+      <p class="rf">Revelation 13:3b</p>
+    </li>
+    <li>
+      <p class="en">"and all the world wondered after the beast"</p>
+      <p class="gr"><span class="gk">ἐθαύμασεν ὅλη ἡ γῆ</span> — <em class="tr">ethaumasen holē hē gē</em>, "the whole earth marvelled"</p>
+      <p class="rf">Revelation 13:3c</p>
+    </li>
+    <li>
+      <p class="en">"they worshipped the dragon… and they worshipped the beast"</p>
+      <p class="gr"><span class="gk">προσεκύνησαν</span> — <em class="tr">prosekynēsan</em>, "they worshipped"</p>
+      <p class="rf">Revelation 13:4</p>
+    </li>
+    <li class="grant">
+      <p class="en">"power was given unto him to continue forty and two months"</p>
+      <p class="gr"><span class="gk">ἐδόθη αὐτῷ ἐξουσία ποιῆσαι μῆνας τεσσαράκοντα δύο</span> — <em class="tr">edothē autō exousia poiēsai mēnas tessarakonta dyo</em>, "authority was given him to act forty-two months"</p>
+      <p class="rf">Revelation 13:5</p>
+    </li>
+  </ol>
+
+  <div class="note hot">
+    <h3>The rule this yields</h3>
+    <p>The healing is step four; the forty-two months are step seven. The wonder and the worship stand between them as the <em>effect</em> of the healing and the reason for the grant. So the wound must be healed <strong>before</strong> the months begin. Any reading that heals the wound after them has the chapter running backwards.</p>
+  </div>
+</section>
+
+<section aria-labelledby="line">
+  <div class="stack">
+    <p class="eyebrow">Second</p>
+    <h2 id="line">The dates that fit the order</h2>
+    <p class="prose">On the day-for-a-year reading, forty-two months of thirty days is 1260 years. The Reformers' sequence reads the chapter as one continuous history of Rome, and every station has a date.</p>
+  </div>
+
+  <ol class="tl">
+    <li class="w">
+      <p class="yr">476</p>
+      <p class="what">The deadly wound</p>
+      <p class="cl">"one of his heads as it were wounded to death"</p>
+      <p>The last emperor of the West is deposed. The imperial head — a form of Roman government, not a man — ceases to exist.</p>
+      <p class="rf">Revelation 13:3a</p>
+    </li>
+    <li class="h">
+      <p class="yr">538</p>
+      <p class="what">The wound healed, and the grant of time</p>
+      <p class="cl">"and his deadly wound was healed… power was given unto him to continue forty and two months"</p>
+      <p>Rome rules again from the same city, under a bishop who carries the old imperial title <em>Pontifex Maximus</em>. The healing and the start of the 1260 years meet here, in the order the text requires: healed first, then the authority.</p>
+      <p class="rf">Revelation 13:3b, 13:5; Daniel 7:25</p>
+      <p class="span">538 → 1798 · the forty-two months, 1260 years</p>
+    </li>
+    <li class="r">
+      <p class="yr">1517</p>
+      <p class="what">The angel with the everlasting gospel</p>
+      <p class="cl">"having the everlasting gospel to preach unto them that dwell on the earth"</p>
+      <p>Inside the 1260 years, not after them — the witness against the power, while the power still holds.</p>
+      <p class="rf">Revelation 14:6</p>
+    </li>
+    <li>
+      <p class="yr">1798</p>
+      <p class="what">The dominion taken away</p>
+      <p class="cl">"they shall take away his dominion, to consume and to destroy it unto the end"</p>
+      <p>Berthier takes Pius VI from Rome and he dies in exile. This ends the months. It is not a second wound: what falls is the dominion, not the head.</p>
+      <p class="rf">Daniel 7:26</p>
+    </li>
+    <li>
+      <p class="yr">1929</p>
+      <p class="what">Not the healing</p>
+      <p class="cl">"the beast that was, and is not, and yet is"</p>
+      <p>The Lateran Treaty restores a sovereign Vatican, and the recovery since is real. But it comes 131 years after the authority it would have to precede, so it cannot be the healing of verse 3. It belongs to the beast's "yet is" phase.</p>
+      <p class="rf">Revelation 17:8</p>
+    </li>
+  </ol>
+</section>
+
+<section aria-labelledby="test">
+  <div class="stack">
+    <h2 id="test">The same test, run on the other readings</h2>
+    <p class="prose">One question sorts the field: is the healing placed before the forty-two months are granted?</p>
+  </div>
+  <div class="table-scroll">
+    <table class="wide">
+      <thead><tr><th>Reading</th><th>Healing placed</th><th>Order holds?</th></tr></thead>
+      <tbody>
+        <tr><td>Nero returning from the dead <span class="ref">(Victorinus, 3rd–4th c.)</span></td><td class="num">future to John</td><td><span class="n">No</span> — after the grant</td></tr>
+        <tr><td>A seventh world power healed in modern times</td><td class="num">19th–20th c.</td><td><span class="n">No</span></td></tr>
+        <tr><td>A future head killed and revived as the eighth</td><td class="num">still future</td><td><span class="n">No</span></td></tr>
+        <tr><td>Rome wounded by division, healed by the monarchy <span class="ref">(Andrew of Caesarea, c. 611)</span></td><td class="num">before John writes</td><td><span class="o">In order</span> — but then the months run from Augustus</td></tr>
+        <tr><td>The imperial head (476), healed in the papal head (538)</td><td class="num">538</td><td><span class="y">Yes</span> — and the months begin there</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section aria-labelledby="head">
+  <div class="stack">
+    <h2 id="head">A head was wounded, not the beast</h2>
+    <p class="prose">John is precise: <span class="gk">μίαν τῶν κεφαλῶν</span> (<em class="tr">mian tōn kephalōn</em>, "one of the heads"). The beast lives on through the wound of one of its heads, which is why a form of government can end while the power continues. Revelation says the heads are successive:</p>
+  </div>
+  <blockquote>And there are seven kings: five are fallen, and one is, and the other is not yet come… And the beast that was, and is not, even he is the eighth, and is of the seven.<cite>Revelation 17:10-11</cite></blockquote>
+  <p class="prose">"Of the seven" — the eighth is not a new beast but the old one in another form. That is what a healed head means: the same power, governing again under a different head.</p>
+
+  <div class="note">
+    <h3>"As it were wounded" does not mean the death was avoided</h3>
+    <p>The objection is that <span class="gk">ὡς ἐσφαγμένην</span> (<em class="tr">hōs esphagmenēn</em>, "as slain") only describes an appearance. But John uses the same construction of Christ: <span class="gk">ἀρνίον… ὡς ἐσφαγμένον</span> (<em class="tr">arnion… hōs esphagmenon</em>) — "a Lamb as it had been slain" (Revelation 5:6). The Lamb's death was not hypothetical. The word marks how the thing appeared in the vision, not that the slaying was unreal — and the shared vocabulary is exactly what makes the healing a counterfeit of the resurrection.</p>
+  </div>
+</section>
+
+<section aria-labelledby="second">
+  <div class="stack">
+    <h2 id="second">The second beast can only come after the healing</h2>
+    <p class="prose">The beast from the earth is defined by what it makes men do, and the object of that worship is described by its scar:</p>
+  </div>
+  <blockquote>And he exerciseth all the power of the first beast before him, and causeth the earth and them which dwell therein to worship the first beast, <strong>whose deadly wound was healed</strong>.<cite>Revelation 13:12</cite></blockquote>
+  <p class="prose">A power whose whole work is to point men to an already-healed beast cannot be at work before the healing. Its documented marks fall centuries later still — the crusades from 1095, transubstantiation made dogma at the Fourth Lateran Council in 1215, the Inquisition from 1231, the Index in 1559 — and the image it commissions is made to a beast "which had the wound by a sword, and did live" (Revelation 13:14).</p>
+</section>
+
+<section aria-labelledby="days">
+  <div class="stack">
+    <h2 id="days">Where the creation week puts them</h2>
+    <p class="prose">Revelation names three places a beast comes up out of, all with the same participle <span class="gk">ἀναβαῖνον</span> (<em class="tr">anabainon</em>, "coming up"). Two of them are days of the creation week; the third is what was there before the first day.</p>
+  </div>
+  <div class="table-scroll">
+    <table class="wide">
+      <thead><tr><th>Revelation</th><th>Domain</th><th>Genesis</th></tr></thead>
+      <tbody>
+        <tr><td>"the beast that ascendeth out of the bottomless pit" <span class="ref">(11:7; 17:8)</span></td><td><span class="gk">ἄβυσσος</span> <em class="tr">abyssos</em>, "the deep"</td><td>"darkness was upon the face of <strong>the deep</strong>" <span class="ref">(1:2, before Day 1)</span></td></tr>
+        <tr><td>"a beast rise up out of the sea" <span class="ref">(13:1)</span></td><td><span class="gk">θάλασσα</span> <em class="tr">thalassa</em>, "sea"</td><td>the waters bring forth, with <span class="he">הַתַּנִּינִם</span> <em class="tr">hattanninim</em>, "the sea-monsters" <span class="ref">(1:20-21, Day 5)</span></td></tr>
+        <tr><td>"another beast coming up out of the earth" <span class="ref">(13:11)</span></td><td><span class="gk">γῆ</span> <em class="tr">gē</em>, "earth, land"</td><td>"beast of the earth", <span class="gk">θηρία τῆς γῆς</span> <em class="tr">thēria tēs gēs</em> in the Greek Old Testament <span class="ref">(1:24-25, Day 6)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="prose">On the reading of a creation day as a thousand years, counted from the fall at about 3970 BC, Day 5 runs from AD 31 to about 1031 and Day 6 from about 1031 to 2031. The sequence above then falls out on its own: rising, wound and healing are all complete by 538, with five centuries of Day 5 still to run, and the second beast's work belongs to Day 6 — which is also the day man is made in God's image, and the day Revelation has men making an image to the beast instead.</p>
+  <div class="note">
+    <h3>What the day fixes, and what it does not</h3>
+    <p>A day names <strong>when a creature is brought forth, not how long it lives</strong>. The fish of Day 5 do not vanish on Day 6, and the beast's 1260 years likewise run on across the boundary. Read as containers the days fail; read as births they hold.</p>
+  </div>
+</section>
+
+<section aria-labelledby="before">
+  <div class="stack">
+    <h2 id="before">Who read it this way before</h2>
+    <p class="prose">The sea-and-earth pairing on days five and six is not new, though it is rare. A search of historicist exposition from 1550 to 1950, the millennial-week literature ancient and modern, academic scholarship, seven other languages and the grey literature turned up one writer who set the two beasts in those two millennia.</p>
+  </div>
+  <blockquote>And in the fifth millennium, life appeared bringing forth abundantly among the nations; and at same time, the great leviathan, the antichristian kingdom, was the peculiar work of this millennium… In the [thirteenth] chapter of Revelation, we have the two appearances of the antichristian kingdom, represented, first, as the great beast from the sea, which we have already seen on the preceding day; and a second beast from the earth.<cite>James Morison of Perth, An Introductory Key to the First Four Books of Moses, 1810</cite></blockquote>
+  <p class="prose">Morison died in 1809; the book was published the next year, and the passage was reprinted by Thomas Whowell in 1830 and quoted by name by G. H. Wood in 1831. He also read the two beasts as this project does — not two powers but "the two appearances of the antichristian kingdom", Rome, with an "antichristian clergy" inside it. J. P. Lange's commentary (1874) made the same day-five and day-six assignment while refusing any chronology, and Hugo Cotro's dissertation (Andrews University, 2015) established the link on the Greek Old Testament's own wording. Nobody else found so far joins the order to the dates.</p>
+</section>
+
+<section aria-labelledby="status">
+  <div class="stack">
+    <h2 id="status">What is settled, what is held, what is open</h2>
+  </div>
+  <div class="table-scroll">
+    <table class="wide">
+      <thead><tr><th>Claim</th><th>Standing</th><th>On what</th></tr></thead>
+      <tbody>
+        <tr><td>The healing precedes the forty-two months</td><td><span class="pill y">Settled</span></td><td>the order of Revelation 13:3-5 itself</td></tr>
+        <tr><td>The wound falls on one head, not the beast</td><td><span class="pill y">Settled</span></td><td>Revelation 13:3; 17:10-11</td></tr>
+        <tr><td>Wound 476, healing 538, months to 1798</td><td><span class="pill o">Held</span></td><td>the Reformers' sequence; the dates are history, not prophecy</td></tr>
+        <tr><td>1929 as the healing</td><td><span class="pill n">Rejected</span></td><td>it falls after the authority it must precede</td></tr>
+        <tr><td>Sea beast on Day 5, earth beast on Day 6</td><td><span class="pill o">Held loosely</span></td><td>the domains and their order; the day-as-millennium overlay is inference</td></tr>
+        <tr><td>Whether the earth beast's rise is datable</td><td><span class="pill o">Open</span></td><td>its documented works are Day 6; its beginning is not fixed</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="prose">The sequence argument stands on the text alone and does not need the creation-week overlay. The overlay is the part still being tested.</p>
+</section>
+
+<footer>
+  <p>Scripture quoted from the Authorized (King James) Version. Greek from the Textus Receptus; the Greek Old Testament is the Septuagint.</p>
+  <p>Part of a study in progress. Dates are the historicist reading held by the Reformers and carried by this project; they are marked as held, not as proven.</p>
+</footer>
+
+</div>
+</body>
+</html>
